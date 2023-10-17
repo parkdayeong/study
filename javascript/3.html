@@ -6,14 +6,27 @@
 </head>
 <body>
   <h1><a href="index.html">WEB</a></h1>
-  <input type="button" value="default" 
-  onclick="document.querySelector('body').style.backgroundColor = 'beige'; 
-  document.querySelector('body').style.color='blueviolet'">
-  <input type="button" value="night" 
-  onclick="document.querySelector('body').style.backgroundColor = 'black'; 
-  document.querySelector('body').style.color='white'">
-  <input type="button" value="day" onclick="document.querySelector('body').style.backgroundColor = 'white'; 
-  document.querySelector('body').style.color='black'">
+
+  <h3>background</h3>
+
+  <input type="button" value="grey" onclick="
+    document.querySelector('body').style.backgroundColor='#eee';
+    document.querySelector('body').style.color='purple';
+  ">
+  <input type="button" value="black" onclick="
+  document.querySelector('body').style.backgroundColor='#111';
+  document.querySelector('body').style.color='white'
+">
+  <input type="button" value="white" onclick="
+  document.querySelector('body').style.backgroundColor='white';
+  document.querySelector('body').style.color='#333';
+">
+
+  <h3>강조색지정</h3>
+  <input type="button" value="강조문구" onclick="
+  document.getElementsByClassName('emphasis')[0].style.color='red';
+  document.getElementsByClassName('emphasis')[1].style.color='red';
+  ">
   <ol>
     <li><a href="1.html">HTML</a></li>
     <li><a href="2.html">CSS</a></li>
@@ -21,7 +34,20 @@
   </ol>
   <h2>JavaScript</h2>
   <p>
-    JavaScript (/ˈdʒɑːvəˌskrɪpt/[6]), often abbreviated as JS, is a high-level, dynamic, weakly typed, prototype-based, multi-paradigm, and interpreted programming language. Alongside HTML and CSS, JavaScript is one of the three core technologies of World Wide Web content production. It is used to make webpages interactive and provide online programs, including video games. The majority of websites employ it, and all modern web browsers support it without the need for plug-ins by means of a built-in JavaScript engine. Each of the many JavaScript engines represent a different implementation of JavaScript, all based on the ECMAScript specification, with some engines not supporting the spec fully, and with many engines supporting additional features beyond ECMA.
+    JavaScript (/ˈdʒɑːvəˌskrɪpt/[6]), often abbreviated as JS, is a high-level,
+     dynamic, weakly typed, prototype-based, multi-paradigm, and <span class="emphasis">interpreted 
+      programming language</span>.
+      Alongside HTML and CSS, JavaScript is one of the three core technologies of 
+      World Wide Web content production. 
+      It is used to make webpages interactive and provide online programs, 
+      including video games.
+           <span class="emphasis">The majority</span> of websites employ it, 
+      and all modern web browsers support it without the need for 
+      plug-ins by means of a built-in JavaScript engine. Each of the many 
+      JavaScript engines represent a different implementation of JavaScript,
+       all based on the ECMAScript specification, with some engines not supporting the spec fully, 
+       and with many engines supporting additional features beyond ECMA.
   </p>
+
 </body>
 </html>
