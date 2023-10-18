@@ -1,11 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>self</title>
+    <meta charset="utf-8">
 </head>
+
 <body>
-    
+    <h1><a href="index.html">WEB</a></h1>
+
+    <h3>background</h3>
+    <!-- default -->
+    <input type="button" value="default" onclick="
+        document.querySelector('body').style.backgroundColor = 'white';
+        document.querySelector('body').style.color='black';
+    ">
+
+    <!-- colorchange red-orange-yellow-green-blue-purple-black  -->
+    <input type="button" id="rainbow" value="red" onclick="
+  if ( document.querySelector('#rainbow').value === 'red'){
+    document.querySelector('body').style.backgroundColor='red';
+    document.querySelector('body').style.color = 'white';
+    document.querySelector('#rainbow').value = 'orange';
+  } else if(document.querySelector('#rainbow').value === 'orange'){
+    document.querySelector('body').style.backgroundColor='orange';
+    document.querySelector('body').style.color='white';
+    document.querySelector('#rainbow').value = 'yellow';
+  } else if(document.querySelector('#rainbow').value === 'yellow'){
+    document.querySelector('body').style.backgroundColor='yellow';
+    document.querySelector('body').style.color='white';
+    document.querySelector('#rainbow').value = 'green';
+  } else if(document.querySelector('#rainbow').value === 'green'){
+    document.querySelector('body').style.backgroundColor='green';
+    document.querySelector('body').style.color='white';
+    document.querySelector('#rainbow').value = 'blue';
+  } else if(document.querySelector('#rainbow').value === 'blue'){
+    document.querySelector('body').style.backgroundColor='blue';
+    document.querySelector('body').style.color='white';
+    document.querySelector('#rainbow').value = 'purple';
+  } else if(document.querySelector('#rainbow').value === 'purple'){
+    document.querySelector('body').style.backgroundColor='purple';
+    document.querySelector('body').style.color='white';
+    document.querySelector('#rainbow').value = 'black';
+  } else{
+    document.querySelector('body').style.backgroundColor='white';
+    document.querySelector('body').style.color='black';
+    document.querySelector('#rainbow').value = 'red';
+  }
+
+">
+
+    <h3>강조색지정</h3>
+    <input type="button" value="강조문구" onclick="
+  document.getElementsByClassName('emphasis')[0].style.color='red';
+  document.getElementsByClassName('emphasis')[1].style.color='red';
+  ">
+    <ol>
+        <li><a href="1.html">HTML</a></li>
+        <li><a href="2.html">CSS</a></li>
+        <li><a href="3.html">JavaScript</a></li>
+    </ol>
+    <h2>JavaScript</h2>
+    <p>
+        JavaScript (/ˈdʒɑːvəˌskrɪpt/[6]), often abbreviated as JS, is a high-level,
+        dynamic, weakly typed, prototype-based, multi-paradigm, and <span class="emphasis">interpreted
+            programming language</span>.
+        Alongside HTML and CSS, JavaScript is one of the three core technologies of
+        World Wide Web content production.
+        It is used to make webpages interactive and provide online programs,
+        including video games.
+        <span class="emphasis">The majority</span> of websites employ it,
+        and all modern web browsers support it without the need for
+        plug-ins by means of a built-in JavaScript engine. Each of the many
+        JavaScript engines represent a different implementation of JavaScript,
+        all based on the ECMAScript specification, with some engines not supporting the spec fully,
+        and with many engines supporting additional features beyond ECMA.
+    </p>
+
 </body>
+
 </html>
