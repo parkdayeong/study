@@ -11,7 +11,7 @@
 
   <h3>background</h3>
 
-  <input type="button" value="grey" onclick="
+  <!-- <input type="button" value="grey" onclick="
     document.querySelector('body').style.backgroundColor='#eee';
     document.querySelector('body').style.color='purple';
   ">
@@ -22,7 +22,7 @@
   <input type="button" value="white" onclick="
   document.querySelector('body').style.backgroundColor='white';
   document.querySelector('body').style.color='#333';
-">
+"> -->
 
   <input type="button" value="night" onclick="
   var target = document.querySelector('body');
@@ -30,14 +30,28 @@
     target.style.backgroundColor='black';
     target.style.color = 'white';
     this.value = 'day';
+    
+    var alist = document.querySelectorAll('a');
+    var i = 0 ;
+    while(i < alist.length){
+      alist[i].style.color ='powderblue';
+      i = i + 1;
+    }
   } else {
     target.style.backgroundColor='white';
     target.style.color = 'black';
     this.value = 'night';
+
+    var alist = document.querySelectorAll('a');
+    var i = 0 ;
+    while(i < alist.length){
+      alist[i].style.color ='blue';
+      i = i + 1;
+    }
   }
 ">
 
-  <h3>강조색지정</h3>
+  <!-- <h3>강조색지정</h3>
   <input type="button" value="강조문구" onclick="
   var emptxt = document.getElementsByClassName('emphasis');
   if (this.value === '강조문구'){
@@ -51,7 +65,7 @@
   }
 
 
-  ">
+  "> -->
   <ol>
     <li><a href="1.html">HTML</a></li>
     <li><a href="2.html">CSS</a></li>
