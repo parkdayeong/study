@@ -4,22 +4,45 @@
 <head>
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
+  <script>
+  
+  </script>
 </head>
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
   <h3>background</h3>
-  <h4>나이트,데이 버튼만들기(1차)</h4>
+  <h4>nightdayhadler(4)-refactoring</h4>
 
-  <input type="button" value="night" onclick="
-    document.querySelector('body').style.backgroundColor = 'black';
-    document.querySelector('body').style.color = 'white';
-  ">
 
-  <input type="button" value="day" onclick="
-    document.querySelector('body').style.backgroundColor = 'white';
-    document.querySelector('body').style.color = 'black';
-  ">
+<input type="button" value="night" onclick="
+if(this.value === 'night'){
+  document.querySelector('body').style.backgroundColor = 'black';
+  document.querySelector('body').style.color = 'white';
+  this.value = 'day';
+  
+  var alist = document.querySelectorAll('a');
+  var i = 0;
+  while(i < alist.length){
+    alist[i].style.color = 'powderblue';
+    i = i + 1;
+};
+}else{
+  document.querySelector('body').style.backgroundColor = 'white';
+  document.querySelector('body').style.color = 'black';
+  this.value = 'night';
+
+  var alist = document.querySelectorAll('a');
+  var i = 0;
+  while(i < alist.length){
+    alist[i].style.color = 'red';
+    i = i + 1;
+};
+
+}
+">
+
+
 
   <ol>
     <li><a href="1.html">HTML</a></li>

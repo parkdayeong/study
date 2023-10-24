@@ -4,22 +4,41 @@
 <head>
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
+  <script>
+  
+  </script>
 </head>
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
   <h3>background</h3>
-  <h4>나이트,데이 버튼만들기(1차)</h4>
+  <h4>나이트,데이 버튼만들기(2차)</h4>
 
-  <input type="button" value="night" onclick="
-    document.querySelector('body').style.backgroundColor = 'black';
-    document.querySelector('body').style.color = 'white';
-  ">
+  <!-- <input id="nightday" type="button" value="night" onclick="
+    if(document.querySelector('#nightday').value === 'night'){
+      document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color = 'white';
+      document.querySelector('#nightday').value = 'day';
+    }else{
+      document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color = 'black';
+      document.querySelector('#nightday').value = 'night';
+    }
+  "> -->
 
-  <input type="button" value="day" onclick="
-    document.querySelector('body').style.backgroundColor = 'white';
-    document.querySelector('body').style.color = 'black';
-  ">
+<input type="button" value="night" onclick="
+if(this.value === 'night'){
+  document.querySelector('body').style.backgroundColor = 'black';
+  document.querySelector('body').style.color = 'white';
+  this.value = 'day';
+}else{
+  document.querySelector('body').style.backgroundColor = 'white';
+  document.querySelector('body').style.color = 'black';
+  this.value = 'night';
+}
+">
+
+
 
   <ol>
     <li><a href="1.html">HTML</a></li>
