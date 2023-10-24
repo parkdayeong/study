@@ -5,47 +5,39 @@
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
   <script>
-    function nightDayhandler(self){
+    function nightDayhandler(self) {
       var target = document.querySelector('body');
-  if ( self.value === 'night'){
-    target.style.backgroundColor='black';
-    target.style.color = 'white';
-    self.value = 'day';
-    
-    var alist = document.querySelectorAll('a');
-    var i = 0 ;
-    while(i < alist.length){
-      alist[i].style.color ='powderblue';
-      i = i + 1;
-    }
-  } else {
-    target.style.backgroundColor='white';
-    target.style.color = 'black';
-    self.value = 'night';
+      if (self.value === 'night') {
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        self.value = 'day';
 
-    var alist = document.querySelectorAll('a');
-    var i = 0 ;
-    while(i < alist.length){
-      alist[i].style.color ='blue';
-      i = i + 1;
-    }
-  }
-    }
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = 'powderblue';
+          i = i + 1;
+        }
+      } else {
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        self.value = 'night';
 
-
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = 'blue';
+          i = i + 1;
+        }
+      }
+    }
   </script>
-
-
 </head>
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
-
   <h3>background</h3>
-
   <input type="button" value="night" onclick="nightDayhandler(this)">
-
-
   <ol>
     <li><a href="1.html">HTML</a></li>
     <li><a href="2.html">CSS</a></li>
@@ -67,10 +59,7 @@
     all based on the ECMAScript specification, with some engines not supporting the spec fully,
     and with many engines supporting additional features beyond ECMA.
   </p>
-
   <input type="button" value="night" onclick="nightDayhandler(this)">
-
-
 </body>
 
 </html>

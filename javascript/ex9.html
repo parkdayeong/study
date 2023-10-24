@@ -24,7 +24,35 @@
 
     </ul>
     <h2>Parameter & Argument</h2>
+    <script>
+        function onePlusOne(){
+            document.write(1+1);
+            document.write('<br>');
+        }
+        onePlusOne();
+        function sum(left, right){
+            result = left + right;
+            document.write(result + '<br>');
+        }
+        function sumColorRed(left,right){
+            result = left + right;
+            document.write('<div style="color:red;">' + result + '</div>')
+        }
+        sum(2, 3); // 5
+        sumColorRed(2, 3); // 5
+        sum(3, 4); // 7
+        sumColorRed(3, 4); // 7
+        sum(1564568, 9958689);
+    </script>
     <h2>Return</h2>
+    <script>
+        function sum2(left, right){
+            return left + right;
+        }
+        document.write(sum2(2,3) + '<br>'); // 5
+        document.write('<div style="color:red;">' + sum2(2,3) + '</div>'); // 5
+        document.write('<div style="font-size:3rem;">' + sum2(2,3) + '</div>'); // 5
+    </script>
 </body>
 
 </html>
