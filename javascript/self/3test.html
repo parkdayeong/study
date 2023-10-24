@@ -5,13 +5,13 @@
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
   <script>
-    function LinksSetColor(color){
+    function setColor(color) {
       var alist = document.querySelectorAll('a');
-        var i = 0;
-        while (i < alist.length) {
-          alist[i].style.color = color;
-          i = i + 1;
-        }
+      var i = 0;
+      while (i < alist.length) {
+        alist[i].style.color = color;
+        i = i + 1;
+      }
     }
     function bodySetBackgroundColor(color){
       document.querySelector('body').style.backgroundColor = color;
@@ -19,26 +19,46 @@
     function bodySetColor(color){
       document.querySelector('body').style.color = color;
     }
+
+
+
     function nightDayhandler(self) {
       if (self.value === 'night') {
         bodySetBackgroundColor('black');
         bodySetColor('white');
         self.value = 'day';
-        LinksSetColor('powderblue');
-      } else {
+
+        setColor('powderblue');
+      }
+      else {
         bodySetBackgroundColor('white');
         bodySetColor('black');
         self.value = 'night';
-        LinksSetColor('black');
+
+        setColor('red');
       }
     }
+
+
+
   </script>
 </head>
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
   <h3>background</h3>
+  <!-- <input type="button" value="night" onclick="
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';
+  ">
+  <input type="button" value="day" onclick="
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+  ">
+  <hr> -->
   <input type="button" value="night" onclick="nightDayhandler(this)">
+
+
   <ol>
     <li><a href="1.html">HTML</a></li>
     <li><a href="2.html">CSS</a></li>
@@ -60,6 +80,8 @@
     all based on the ECMAScript specification, with some engines not supporting the spec fully,
     and with many engines supporting additional features beyond ECMA.
   </p>
+
+
   <input type="button" value="night" onclick="nightDayhandler(this)">
 </body>
 
