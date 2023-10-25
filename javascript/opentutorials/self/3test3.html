@@ -5,44 +5,52 @@
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
   <script>
-  
-  </script>
+    function LinksSetColor(color){
+      var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = color;
+          i = i + 1;
+        };
+    }
+    function BodySetBackgroundColor(color){
+      document.querySelector('body').style.backgroundColor = color;
+    };
+
+    function BodySetColor(color){
+      document.querySelector('body').style.color = color;
+    }
+
+
+    function nightdayhandler(self){
+      var target = document.querySelector('body');
+      if(self.value === 'night'){
+        BodySetBackgroundColor('black');
+        BodySetColor('white');
+        self.value = 'day';
+
+        LinksSetColor('powderblue');
+      }else{
+        BodySetBackgroundColor('beige');
+        BodySetColor('black');
+        self.value = 'night';
+
+        LinksSetColor('black');
+      }
+    }
+
+
+  </script>  
+
+
 </head>
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
   <h3>background</h3>
-  <h4>nightdayhadler(3)</h4>
+  <h4>nightdayhandler-3-refactoring</h4>
 
-
-<input type="button" value="night" onclick="
-if(this.value === 'night'){
-  document.querySelector('body').style.backgroundColor = 'black';
-  document.querySelector('body').style.color = 'white';
-  this.value = 'day';
-  
-  var alist = document.querySelectorAll('a');
-  var i = 0;
-  while(i < alist.length){
-    alist[i].style.color = 'powderblue';
-    i = i + 1;
-};
-}else{
-  document.querySelector('body').style.backgroundColor = 'white';
-  document.querySelector('body').style.color = 'black';
-  this.value = 'night';
-
-  var alist = document.querySelectorAll('a');
-  var i = 0;
-  while(i < alist.length){
-    alist[i].style.color = 'red';
-    i = i + 1;
-};
-
-}
-">
-
-
+    <input type="button" value="night" onclick="nightdayhandler(this)">
 
   <ol>
     <li><a href="1.html">HTML</a></li>
@@ -65,7 +73,7 @@ if(this.value === 'night'){
     all based on the ECMAScript specification, with some engines not supporting the spec fully,
     and with many engines supporting additional features beyond ECMA.
   </p>
-
+  <input type="button" value="night" onclick="nightdayhandler(this)">
 
 </body>
 
