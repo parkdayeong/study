@@ -5,7 +5,41 @@
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
   <script>
-  
+    function linksSetColor(color){
+      var alist = document.querySelectorAll('a');
+        var i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = color;
+          i = i + 1;
+        };
+    };
+    function bodySetBackgroundColor(color){
+      document.querySelector('body').style.backgroundColor = color;
+    }
+
+    function bodySetColor(color){
+      document.querySelector('body').style.color = color;
+    }
+
+
+    function nightdayhadler(self) {
+      if (self.value === 'night') {
+        bodySetBackgroundColor('black');
+        bodySetColor('white');
+        self.value = 'day';
+
+        linksSetColor('powderblue');
+        
+      } else {
+        bodySetBackgroundColor('white');
+        bodySetColor('black');
+        self.value = 'night';
+
+        linksSetColor('blue');
+      }
+    }
+
+
   </script>
 </head>
 
@@ -15,32 +49,7 @@
   <h4>nightdayhadler(4)-refactoring</h4>
 
 
-<input type="button" value="night" onclick="
-if(this.value === 'night'){
-  document.querySelector('body').style.backgroundColor = 'black';
-  document.querySelector('body').style.color = 'white';
-  this.value = 'day';
-  
-  var alist = document.querySelectorAll('a');
-  var i = 0;
-  while(i < alist.length){
-    alist[i].style.color = 'powderblue';
-    i = i + 1;
-};
-}else{
-  document.querySelector('body').style.backgroundColor = 'white';
-  document.querySelector('body').style.color = 'black';
-  this.value = 'night';
-
-  var alist = document.querySelectorAll('a');
-  var i = 0;
-  while(i < alist.length){
-    alist[i].style.color = 'red';
-    i = i + 1;
-};
-
-}
-">
+  <input type="button" value="night" onclick="nightdayhadler(this)">
 
 
 
@@ -65,7 +74,7 @@ if(this.value === 'night'){
     all based on the ECMAScript specification, with some engines not supporting the spec fully,
     and with many engines supporting additional features beyond ECMA.
   </p>
-
+  <input type="button" value="night" onclick="nightdayhadler(this)">
 
 </body>
 
