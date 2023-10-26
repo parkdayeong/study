@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>var, let, const</h1>
+    <script>
+    // let키워드를 사용하여 변수를 만들면 의도치않게  전역변수가 되어지는 것을 막을 수 있다.
+    let name1 = "cong";
+    name1 = "bizy"
+    document.write(name1 + "<br>");
+
+    var name2 = "cong"
+    var name2 = "bizy"
+    document.write(name2 + "<br>");
+
+    const name3 = "bizy"
+    // name3 = "cong";
+    document.write(name3)
+    </script>
+</body>
+</html>
