@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script></script>
+  </head>
+  <body>
+    <h1></h1>
+    <script>
+      // [1] null --> 값이 없다. 라는 의도적인 명시적표현
+      // null 타입체크시 object 객체로 나옴
+      // 논리연산으로는 false
+
+      let isNullCheck = null;
+      document.write(isNullCheck + "<br>");
+      document.write(typeof isNullCheck + "<br>");
+
+      // [2] 값이 없다는 의미의 빈 값 체크
+
+      let value = "";
+      document.write(value + "<br>");
+
+      //[2-1]
+      if (value == "") {
+        document.write("값이없음");
+      } else {
+        document.write("값이있음");
+      }
+
+      document.write("<br>");
+
+      //[2-2] : NOT연산자
+      if (!value) {
+        document.write("값이없음");
+      } else {
+        document.write("값이있음");
+      }
+    </script>
+  </body>
+</html>
