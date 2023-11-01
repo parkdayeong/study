@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selector</title>
+    <!-- <script src="ep05.js" defer></script> -->
+    <script src="ep05-test.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <h2 id="title">add</h2>
+      <form name="myForm">
+        <input type="text" name="myText" placeholder="동물을 입력해주세요" />
+        <button type="button" id="before">앞에추가</button>
+        <button type="button" id="add">추가</button>
+        <button type="button" id="target-remove">타겟제거</button>
+      </form>
+      <ul class="list">
+        <li class="item" id="target">
+          기준
+          <button class="remove-btn">X</button>
+        </li>
+      </ul>
+      <hr />
+      <p class="create-element">createElement</p>
+      <p>지정한 tagName의 html요소를 생성합니다</p>
+      <p>let element = document.createElement('p');</p>
+
+      <p class="append-child">appendChild</p>
+      <p>마지막 자식요소로 요소추가 삽입할 요소만 매개변수로 제공하면된다.</p>
+      <p>
+        const = li = document.createElement('li');<br />
+        li.textContent = "hello";<br />
+        document.querySelector('ul').appendChild(li);
+      </p>
+      <p class="insert-before">insertBefore</p>
+      <p>매개변수를 두개 받습니다. 첫번재 매개변수는 삽입할요소, 두번재 매개변수는 삽입할 위치를 정하는 요소</p>
+      <p>
+        const firstItem = document.querySelector('.first-item');
+        <br />const li = document.createElement ('li');<br />
+        li.textContent ="hi";<br />
+        document.querySelector('ul').insertBefore(li, firstItem)
+      </p>
+      <p class="remove">remove</p>
+      <p>해당요소 제거</p>
+      <p class="parent-node">parentNode</p>
+      <p>지정된 노드의 부모를 반환</p>
+      <p>removeBtn.addEventListener('click', function(event){ console.log('remove click'), event.target event.target.parentNode.remove(); })</p>
+    </section>
+  </body>
+</html>
