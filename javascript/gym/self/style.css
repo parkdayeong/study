@@ -1,0 +1,15 @@
+/* mouseevent */
+
+.rect {
+  width: 300px;
+  height: 150px;
+  background-color: antiquewhite;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: blueviolet;
+  position: absolute;
+}

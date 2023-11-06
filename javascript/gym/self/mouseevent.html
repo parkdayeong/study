@@ -5,32 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="mouseevent.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h5>마우스 클릭 이벤트:</h5>
-    <p>웹 페이지에 버튼이나 링크를 생성하고, 해당 요소를 클릭할 때마다 콘솔에 메시지를 출력하는 코드를 작성하세요.</p>
-    <button id="myButton">클릭하세요</button>
-    <p id="output"></p>
+    <div class="rect"></div>
+    <div class="circle"></div>
+    <!-- <div id="colorChangeDiv" style="width: 200px; height: 200px; background-color: #3498db"></div> -->
 
-    <h5>마우스 오버 및 아웃 이벤트:</h5>
-    <p>웹 페이지에 이미지를 추가하고, 이미지 위에 마우스를 가져가면 이미지가 커지고, 마우스를 이미지 바깥으로 이동하면 이미지가 작아지도록 코드를 작성하세요.</p>
+    <br />
+    <br />
+    <hr />
+    <br />
+    <br />
+    <h3>mouseevent</h3>
+    <ul>
+      <li>click: 요소를 마우스로 클릭했을 때 발생합니다. 더블 클릭은 두 번 클릭하는 것을 의미하며, 각각의 클릭은 별도의 click 이벤트로 처리됩니다.</li>
+      <li>mousedown: 마우스 버튼을 누를 때 발생합니다.</li>
+      <li>mouseup: 마우스 버튼을 눌렀다 놓을 때 발생합니다.</li>
+      <li>mousemove: 마우스 커서가 요소 내에서 움직일 때 발생합니다.</li>
+      <li>mouseover: 마우스 커서가 요소 위로 이동할 때 발생합니다.</li>
+      <li>mouseout: 마우스 커서가 요소를 벗어날 때 발생합니다.</li>
+      <li>mouseenter: 마우스 커서가 요소 내부로 들어올 때 발생하며, 버블링이 일어나지 않습니다.</li>
+      <li>mouseleave: 마우스 커서가 요소 내부를 떠날 때 발생하며, 버블링이 일어나지 않습니다.</li>
+      <li>contextmenu: 마우스 오른쪽 버튼을 클릭하거나 컨텍스트 메뉴를 표시하려고 할 때 발생합니다.</li>
+      <li>dblclick: 요소를 더블 클릭할 때 발생합니다.</li>
+      <li>wheel: 마우스 휠을 사용하여 스크롤할 때 발생합니다.</li>
 
-    <h5>드래그 앤 드롭:</h5>
-    <p>웹 페이지에 여러 개의 이미지를 추가하고, 이미지를 드래그하여 원하는 위치로 이동할 수 있는 인터랙티브한 환경을 만들어 보세요.</p>
-
-    <h5>마우스 휠 스크롤 이벤트:</h5>
-    <p>특정 요소에 마우스 휠을 사용하여 스크롤 이벤트를 처리하고, 스크롤 방향에 따라 콘텐츠가 이동하도록 코드를 작성하세요.</p>
-
-    <h5>오른쪽 버튼 클릭 방지:</h5>
-    <p>웹 페이지의 모든 오른쪽 마우스 클릭을 차단하여 컨텍스트 메뉴가 나타나지 않도록 코드를 작성하세요.</p>
-
-    <h5>이미지 확대/축소:</h5>
-    <p>웹 페이지에 이미지를 추가하고 마우스 휠을 사용하여 이미지를 확대 또는 축소할 수 있는 코드를 작성하세요.</p>
-
-    <h5>클릭한 마우스 좌표 표시:</h5>
-    <p>웹 페이지를 클릭할 때마다 마우스 좌표 (X, Y)를 화면에 표시하는 코드를 작성하세요.</p>
-
-    <h5>마우스 오버 효과:</h5>
-    <p>웹 페이지 요소에 마우스를 가져가면 배경색이 바뀌거나 특정 애니메이션 효과가 나타나도록 코드를 작성하세요.</p>
+      <li>dragstart: 드래그 작업이 시작될 때 발생합니다.</li>
+      <li>dragend: 드래그 작업이 종료될 때 발생합니다.</li>
+      <li>dragover: 요소 위로 드래그 중인 아이템을 가져올 때 발생합니다.</li>
+      <li>dragenter: 요소에 드래그 중인 아이템이 들어갈 때 발생합니다.</li>
+      <li>dragleave: 요소에서 드래그 중인 아이템이 나갈 때 발생합니다.</li>
+      <li>drop: 드래그된 아이템을 요소에 드롭할 때 발생합니다.</li>
+      <li>mousedown, mousemove, mouseup의 조합으로 드래그 및 드롭을 구현할 수 있습니다.</li>
+    </ul>
+    <h4>유용한 이벤트 속성&메서드</h4>
+    <ul>
+      <li>event.clientX, event.clientY</li>
+      <li>event.pageX, event.pageY</li>
+      <li>event.target.getBoundingClientRect()</li>
+    </ul>
   </body>
 </html>
