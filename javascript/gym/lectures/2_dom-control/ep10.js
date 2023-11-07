@@ -29,3 +29,10 @@ let inputBox = document.querySelector('#input-box');
 // inputBox.addEventListener('change', function (event) {
 //   console.log('change');
 // });
+
+let img1 = document.querySelector('img');
+
+img1.addEventListener('error', function (event) {
+  console.log(event.target);
+  event.target.src = '../../img/apple.jpg';
+});

@@ -10,6 +10,13 @@
   <body>
     <h2>input</h2>
     <input type="text" id="input-box" />
+    <h2>form</h2>
+    <form action="/server-url" onsubmit="alert('hello')">
+      <input type="text" name="username" />
+      <button type="submit">제출하기</button>
+    </form>
+    <h2>Image</h2>
+    <img src="image.jpg" alt="이미지" />
     <br /><br />
     <hr />
     <br /><br />
@@ -32,6 +39,17 @@
       <li>focus</li>
       <li>blur</li>
       <li>change</li>
+    </ul>
+
+    <h3>폼 이벤트</h3>
+    <ul>
+      <li>submit</li>
+    </ul>
+
+    <h3>진행 progress 이벤트</h3>
+    <ul>
+      <li>load</li>
+      <li>error</li>
     </ul>
   </body>
 </html>
