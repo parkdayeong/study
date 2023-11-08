@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>간단한 계산기</title>
+    <style>
+      /* 기본 버튼 스타일 */
+      button {
+        background-color: #4caf50; /* 기본 배경색 */
+        color: white; /* 기본 텍스트 색상 */
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>간단한 계산기</h4>
+    <input type="number" id="number1" placeholder="숫자 1" />
+    <button id="add" class="operation-button">+</button>
+    <button id="subtract" class="operation-button">-</button>
+    <button id="multiply" class="operation-button">*</button>
+    <button id="divide" class="operation-button">/</button>
+    <input type="number" id="number2" placeholder="숫자 2" />
+    <button id="equals">=</button>
+    <p id="result">결과:</p>
+
+    <script>
+      const number1 = document.getElementById('number1');
+      const number2 = document.getElementById('number2');
+      const addBtn = document.getElementById('add');
+      const subtractBtn = document.getElementById('subtract');
+      const multiplyBtn = document.getElementById('multiply');
+      const divideBtn = document.getElementById('divide');
+      const equalsBtn = document.getElementById('equals');
+      const resultText = document.getElementById('result');
+
+      let operator = '';
+
+      function resetButtonColors() {
+        // 모든 연산자 버튼을 초록색으로 초기화
+        const operationButtons = document.querySelectorAll('.operation-button');
+        operationButtons.forEach((button) => {
+          button.style.backgroundColor = '#4CAF50';
+        });
+      }
+
+      addBtn.addEventListener('click', () => {
+        operator = '+';
+        resetButtonColors();
+        addBtn.style.backgroundColor = 'red'; // 선택한 버튼을 빨간색으로 변경
+      });
+
+      subtractBtn.addEventListener('click', () => {
+        operator = '-';
+        resetButtonColors();
+        subtractBtn.style.backgroundColor = 'red';
+      });
+
+      multiplyBtn.addEventListener('click', () => {
+        operator = '*';
+        resetButtonColors();
+        multiplyBtn.style.backgroundColor = 'red';
+      });
+
+      divideBtn.addEventListener('click', () => {
+        operator = '/';
+        resetButtonColors();
+        divideBtn.style.backgroundColor = 'red';
+      });
+
+      equalsBtn.addEventListener('click', () => {
+        resetButtonColors(); // "=" 버튼을 클릭할 때 모든 버튼 색상 초기화
+        const num1 = parseFloat(number1.value);
+        const num2 = parseFloat(number2.value);
+        let result = 0;
+
+        if (operator === '+') {
+          result = num1 + num2;
+        } else if (operator === '-') {
+          result = num1 - num2;
+        } else if (operator === '*') {
+          result = num1 * num2;
+        } else if (operator === '/') {
+          if (num2 === 0) {
+            resultText.textContent = '0으로 나눌 수 없습니다.';
+            return;
+          } else {
+            result = num1 / num2;
+          }
+        } else {
+          resultText.textContent = '연산자를 선택하세요.';
+          return;
+        }
+
+        resultText.textContent = `결과: ${result}`;
+      });
+    </script>
+  </body>
+</html>

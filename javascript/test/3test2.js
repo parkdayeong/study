@@ -94,7 +94,6 @@ rect.addEventListener('click', function () {
 });
 
 //function dayNighthandler -- refactioring -- object refactioring
-let target = document.querySelector('body');
 
 let Links = {
   setColor: function (color) {
@@ -109,10 +108,10 @@ let Links = {
 
 let Body = {
   setBackgroundColor: function (color) {
-    target.style.backgroundColor = color;
+    document.querySelector('body').style.backgroundColor = color;
   },
   setColor: function (color) {
-    target.style.color = color;
+    document.querySelector('body').style.color = color;
   },
 };
 

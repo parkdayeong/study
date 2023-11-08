@@ -113,7 +113,7 @@ let Body = {
     document.querySelector('body').style.backgroundColor = color;
   },
   setColor: function (color) {
-    document.querySelector('body').style.color = colom r;
+    document.querySelector('body').style.color = color;
   },
 };
 
