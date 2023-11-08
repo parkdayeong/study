@@ -67,10 +67,27 @@
 
 // [5] Rest parameters
 
-print('a', 'b', 'c', 'd', 'c', 'dd', 'cong', 'dddddd');
+// print('a', 'b', 'c', 'd', 'c', 'dd', 'cong', 'dddddd');
 
-function print(...values) {
-  values.forEach(function (value, index) {
-    console.log(index, value);
-  });
-}
+// function print(...values) {
+//   values.forEach(function (value, index) {
+//     console.log(index, value);
+//   });
+// }
+
+// [6] Copy
+// ----얕은 복사 Shallow copy
+// let source = ['apple', 'banana', 'strawberry'];
+// let target = source;
+// target[0] = 'watermelon';
+// console.log(source);
+// console.log(target);
+
+// ----깊은 복사 deep copy
+let source = ['apple', 'banana', 'strawberry'];
+// let target = [...source];
+// let target = Array.from(source);
+let target = source.slice();
+target[0] = 'watermelon';
+console.log(source);
+console.log(target);
