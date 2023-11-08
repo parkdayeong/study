@@ -1,5 +1,26 @@
 // javascript strict mode
 'use strict';
+//indexOf, forEach
+let answer = ['1', '5', '2', '6'];
+let num = '1236';
+let strike = 0;
+let ball = 0;
+
+answer.forEach(function (value, i) {
+  const index = num.indexOf(value);
+  if (index > -1) {
+    //숫자가 동일할때;
+    if (index === i) {
+      //index도 동일할때
+      strike += 1;
+    } else {
+      ball += 1;
+    }
+  }
+});
+
+console.log(`strike : ${strike}, ball : ${ball}`);
+
 // variable
 let body = document.querySelector('body');
 
