@@ -1,132 +1,125 @@
-// strict mode
+/* strict mode */
 'use strict';
-//strike,ball
+
+/* calculator */
+
+//variable
+let number1 = document.querySelector('#number1');
+let number2 = document.querySelector('#number2');
+
+let sum = document.querySelector('#sum');
+let min = document.querySelector('#min');
+let multiply = document.querySelector('#multiply');
+let divide = document.querySelector('#divide');
+let equal = document.querySelector('#equal');
+let resultArea = document.querySelector('#result');
+
+//function btnColorReset
+const btnColorReset = () => {
+  let operatorBtn = document.querySelectorAll('.operator-btn');
+  operatorBtn.forEach((value) => {
+    value.style.backgroundColor = 'white';
+    value.style.color = 'black';
+  });
+};
+
+//function btnColorChange
+
+const btnColorChange = (self) => {
+  self.target.style.backgroundColor = 'black';
+  self.target.style.color = 'white';
+};
+
+//operator buttons
+let operator = '';
+
+sum.addEventListener('click', (value) => {
+  operator = '+';
+  btnColorReset();
+  btnColorChange(value);
+});
+
+min.addEventListener('click', (value) => {
+  operator = '-';
+  btnColorReset();
+  btnColorChange(value);
+});
+
+multiply.addEventListener('click', (value) => {
+  operator = '*';
+  btnColorReset();
+  btnColorChange(value);
+});
+
+divide.addEventListener('click', (value) => {
+  operator = '/';
+  btnColorReset();
+  btnColorChange(value);
+});
+
+// calculate
+equal.addEventListener('click', () => {
+  let num1 = parseFloat(number1.value);
+  let num2 = parseFloat(number2.value);
+
+  let result = 0;
+  if (operator === '+') {
+    result = num1 + num2;
+  } else if (operator === '-') {
+    result = num1 - num2;
+  } else if (operator === '*') {
+    result = num1 * num2;
+  } else if (operator === '/') {
+    if (num2 === 0) {
+      resultArea.textContent = '0으로 나눌 수 없습니다.';
+      return;
+    } else {
+      result = num1 / num2;
+    }
+  } else {
+    resultArea.textContent = '수식을 입력해주세요.';
+    return;
+  }
+  resultArea.textContent = `결과 : ${result}`;
+});
+
+/* ball,strike */
+
 let strike = 0;
 let ball = 0;
+
 let answer = ['1', '5', '2', '8'];
 let num = '5124';
 
-answer.forEach(function (value, i) {
-  let index = num.indexOf(value);
-  if (index > -1) {
-    if (index == i) {
+answer.forEach((value, index) => {
+  // console.log(index, value);
+  let i = num.indexOf(value);
+  if (i > 0) {
+    if ((i = index)) {
       strike += 1;
-    } else {
-      ball += 1;
     }
+    ball += 1;
   }
 });
 
-// for (let i = 0; i < answer.length; i++) {
-//   let index = num.indexOf(answer[i]);
-//   if (index > -1) {
-//     if (index == i) {
-//       strike += 1;
-//     } else {
-//       ball += 1;
-//     }
-//   }
-// }
-
-// variable
-let body = document.querySelector('body');
-let rect = document.querySelector('.rect');
-let circle = document.querySelector('.circle');
-
-let colors = ['red', 'orange', 'blue'];
-let i = 0;
-
-let beforeBtn = document.querySelector('#before');
+/* createElement */
+let addBeforeBtn = document.querySelector('#before');
 let addBtn = document.querySelector('#add');
-let removeTargetBtn = document.querySelector('#target-remove');
-
-let inputBox = document.querySelector('input');
-// createElemnet
-
-inputBox.placeholder = '문구를 입력하세요.';
+let targetRemoveBtn = document.querySelector('#target-remove');
+let inputBox = document.querySelector('#input-text');
 
 addBtn.addEventListener('click', () => {
   let ul = document.querySelector('ul');
   let li = document.createElement('li');
   ul.appendChild(li);
   li.textContent = inputBox.value;
-
-  let button = document.createElement('button');
-  li.appendChild(button);
-  button.textContent = 'X';
-
-  button.addEventListener('click', (event) => {
+  let removeBtn = document.createElement('button');
+  li.appendChild(removeBtn);
+  removeBtn.textContent = 'X';
+  removeBtn.addEventListener('click', (event) => {
     event.target.parentNode.remove();
   });
 
   inputBox.value = '';
+  inputBox.focus();
 });
-
-beforeBtn.addEventListener('click', () => {
-  let ul = document.querySelector('ul');
-  let li = document.createElement('li');
-  let target = document.querySelector('#target');
-  ul.insertBefore(li, target);
-  li.textContent = inputBox.value;
-
-  let button = document.createElement('button');
-  li.appendChild(button);
-  button.textContent = 'X';
-
-  button.addEventListener('click', (event) => {
-    event.target.parentNode.remove();
-  });
-});
-let removeBtn = document.querySelector('.remove-btn');
-removeTargetBtn.addEventListener('click', () => {
-  removeBtn.parentNode.remove();
-});
-removeBtn.addEventListener('click', (event) => {
-  event.target.parentNode.remove();
-});
-// addEventListener
-rect.addEventListener('click', (event) => {
-  rect.style.backgroundColor = colors[i];
-  i = (i + 1) % colors.length;
-});
-
-// body.addEventListener('click', (event) => {
-//   circle.style.left = event.pageX + 'px';
-//   circle.style.top = event.pageY + 'px';
-// });
-
-// function dayNightHandler --> refactoring Object
-
-let Links = {
-  setColor: function (color) {
-    let alinks = document.querySelectorAll('a');
-    let i = 0;
-    while (i < alinks.length) {
-      alinks[i].style.color = color;
-      i = i + 1;
-    }
-  },
-};
-
-let Body = {
-  setBackgroundColor: function (color) {
-    document.querySelector('body').style.backgroundColor = color;
-  },
-  setColor: function (color) {
-    document.querySelector('body').style.color = color;
-  },
-};
-
-function dayNightHandler(self) {
-  if (self.value === 'night') {
-    Body.setBackgroundColor('black');
-    Body.setColor('white');
-    Links.setColor('powderblue');
-    self.value = 'day';
-  } else {
-    Body.setBackgroundColor('white');
-    Body.setColor('black');
-    Links.setColor('red');
-    self.value = 'night';
-  }
-}

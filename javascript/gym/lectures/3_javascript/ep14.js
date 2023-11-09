@@ -41,75 +41,111 @@
 
 // [2]
 
-let number1 = document.querySelector('#num1');
-let number2 = document.querySelector('#num2');
-let sum = document.querySelector('#sum');
-let minus = document.querySelector('#minus');
-let divide = document.querySelector('#divide');
-let multiply = document.querySelector('#multiply');
+// let number1 = document.querySelector('#num1');
+// let number2 = document.querySelector('#num2');
+// let sum = document.querySelector('#sum');
+// let minus = document.querySelector('#minus');
+// let divide = document.querySelector('#divide');
+// let multiply = document.querySelector('#multiply');
 
-let answer = document.querySelector('#answer2');
-let operator = '';
+// let answer = document.querySelector('#answer2');
+// let operator = '';
 
-function colorChange() {
-  const colorChangeBtn = document.querySelectorAll('.color-change');
-  colorChangeBtn.forEach((button) => {
-    button.style.backgroundColor = 'white';
-    // console.log(button);
-  });
+// function colorChange() {
+//   const colorChangeBtn = document.querySelectorAll('.color-change');
+//   colorChangeBtn.forEach((button) => {
+//     button.style.backgroundColor = 'white';
+//     // console.log(button);
+//   });
+// }
+// colorChange();
+
+// sum.addEventListener('click', (event) => {
+//   operator = '+';
+//   colorChange();
+//   event.target.style.backgroundColor = 'grey';
+// });
+
+// minus.addEventListener('click', (event) => {
+//   operator = '-';
+//   colorChange();
+//   event.target.style.backgroundColor = 'grey';
+// });
+
+// divide.addEventListener('click', (event) => {
+//   operator = '/';
+//   colorChange();
+//   event.target.style.backgroundColor = 'grey';
+// });
+
+// multiply.addEventListener('click', (event) => {
+//   operator = '*';
+//   colorChange();
+//   event.target.style.backgroundColor = 'grey';
+// });
+
+// equals.addEventListener('click', () => {
+//   colorChange();
+
+//   let num1 = parseFloat(number1.value);
+//   let num2 = parseFloat(number2.value);
+
+//   let result = 0;
+//   if (operator === '+') {
+//     result = num1 + num2;
+//   } else if (operator === '-') {
+//     result = num1 - num2;
+//   } else if (operator === '*') {
+//     result = num1 * num2;
+//   } else if (operator === '/') {
+//     if (num2 === 0) {
+//       answer.textContent = '0으로 나눌 수 없습니다.';
+//       return;
+//     } else {
+//       result = num1 / num2;
+//     }
+//   } else {
+//     answer.textContent = '연산자를 선택하세요';
+//     return;
+//   }
+//   number1.value = '';
+//   number2.value = '';
+//   answer.textContent = `결과: ${result}`;
+//   number1.focus();
+// });
+
+// [2]등급확인하기
+
+// let submit = document.querySelector('#submit');
+// let inputBox = document.querySelector('input');
+// let gradeArea = document.querySelector('#grade');
+
+// submit.addEventListener('click', () => {
+//   let score = inputBox.value;
+//   if (score >= 90) {
+//     gradeArea.textContent = `점수: ${score}, A등급입니다.`;
+//   } else if (score >= 80) {
+//     gradeArea.textContent = `점수: ${score}, B등급입니다.`;
+//   } else if (score >= 70) {
+//     gradeArea.textContent = `점수: ${score}, C등급입니다.`;
+//   } else if (score >= 60) {
+//     gradeArea.textContent = `점수: ${score}, D등급입니다.`;
+//   } else {
+//     gradeArea.textContent = `점수: ${score}, F등급입니다.`;
+//   }
+// });
+
+// let condition = 10;
+// if (condition) {
+//   console.log('참');
+// } else {
+//   console.log('거짓');
+// }
+
+let subject = 'javascript';
+switch (subject) {
+  case 'java':
+    console.log('hi');
+  case 'javascript':
+    console.log('hello');
 }
-colorChange();
-
-sum.addEventListener('click', (event) => {
-  operator = '+';
-  colorChange();
-  event.target.style.backgroundColor = 'grey';
-});
-
-minus.addEventListener('click', (event) => {
-  operator = '-';
-  colorChange();
-  event.target.style.backgroundColor = 'grey';
-});
-
-divide.addEventListener('click', (event) => {
-  operator = '/';
-  colorChange();
-  event.target.style.backgroundColor = 'grey';
-});
-
-multiply.addEventListener('click', (event) => {
-  operator = '*';
-  colorChange();
-  event.target.style.backgroundColor = 'grey';
-});
-
-equals.addEventListener('click', () => {
-  colorChange();
-
-  let num1 = parseFloat(number1.value);
-  let num2 = parseFloat(number2.value);
-
-  let result = 0;
-  if (operator === '+') {
-    result = num1 + num2;
-  } else if (operator === '-') {
-    result = num1 - num2;
-  } else if (operator === '*') {
-    result = num1 * num2;
-  } else if (operator === '/') {
-    if (num2 === 0) {
-      answer.textContent = '0으로 나눌 수 없습니다.';
-      return;
-    } else {
-      result = num1 / num2;
-    }
-  } else {
-    answer.textContent = '연산자를 선택하세요';
-    return;
-  }
-  number1.value = '';
-  number2.value = '';
-  answer.textContent = `결과: ${result}`;
-  number1.focus();
-});
