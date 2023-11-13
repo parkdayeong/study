@@ -142,10 +142,80 @@
 //   console.log('거짓');
 // }
 
-let subject = 'javascript';
-switch (subject) {
-  case 'java':
-    console.log('hi');
-  case 'javascript':
-    console.log('hello');
+// let subject = 'javascript';
+// switch (subject) {
+//   case 'java':
+//     console.log('hi');
+//   case 'javascript':
+//     console.log('hello');
+//}
+
+/* 반복문 */
+// for (let i = 0; i <= 5; i++) {
+//   console.log(i);
+// }
+
+// let fruits = ['apple', 'pear', 'banana', 'grape'];
+// for (let i = 0; i < fruits.length; i++) {
+//   console.log(fruits[i]);
+// }
+
+// let cat = {
+//   name: 'cong',
+//   age: 2,
+//   weight: '4kg',
+// };
+
+// // let key = prompt('key를 입력해주세요.');
+// // console.log(cat[key]);
+
+// let keys = Object.keys(cat);
+
+// for (let i = 0; i < keys.length; i++) {
+//   let key = keys[i];
+//   console.log(cat[key]);
+// }
+
+// console.log('-----------------------------');
+
+// for (let key in cat) {
+//   console.log(cat[key]);
+// }
+// console.log('-----------------------------');
+
+// let fruits = ['apple', 'pear', 'banana', 'grape'];
+// for (let fruit of fruits) {
+//   console.log(fruit);
+// }
+
+// while
+
+// do...while
+// let count = 5;
+// while (count < 5) {
+//   console.log(count);
+//   count++;
+// }
+
+// console.log('-----------------------------');
+
+// let number = 5;
+// do {
+//   console.log(number);
+//   number++;
+// } while (number < 5);
+
+// let text = '';
+// console.log(1 + 2);
+// console.log('javascript' + 'hello');
+// console.log('javascr
+let text = '';
+for (let i = 0; i < 10; i++) {
+  if (i === 3) {
+    // continue;
+    break;
+  }
+  text = text + i;
 }
+
+console.log(text);

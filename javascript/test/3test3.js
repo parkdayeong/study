@@ -3,7 +3,7 @@
 
 /* calculator */
 
-//variable
+// variable
 let number1 = document.querySelector('#number1');
 let number2 = document.querySelector('#number2');
 
@@ -12,52 +12,50 @@ let min = document.querySelector('#min');
 let multiply = document.querySelector('#multiply');
 let divide = document.querySelector('#divide');
 let equal = document.querySelector('#equal');
+
 let resultArea = document.querySelector('#result');
 
-//function btnColorReset
-const btnColorReset = () => {
-  let operatorBtn = document.querySelectorAll('.operator-btn');
-  operatorBtn.forEach((value) => {
+// function btnsColorReset()
+const btnsColorReset = () => {
+  let operatorBtns = document.querySelectorAll('.operator-btn');
+  operatorBtns.forEach((value) => {
     value.style.backgroundColor = 'white';
     value.style.color = 'black';
   });
 };
 
-//function btnColorChange
-
+// refactoring function btnColorChange()
 const btnColorChange = (self) => {
   self.target.style.backgroundColor = 'black';
   self.target.style.color = 'white';
 };
 
-//operator buttons
+// operator
 let operator = '';
-
-sum.addEventListener('click', (value) => {
+sum.addEventListener('click', (event) => {
   operator = '+';
-  btnColorReset();
-  btnColorChange(value);
+  btnsColorReset();
+  btnColorChange(event);
 });
 
-min.addEventListener('click', (value) => {
+min.addEventListener('click', (event) => {
   operator = '-';
-  btnColorReset();
-  btnColorChange(value);
+  btnsColorReset();
+  btnColorChange(event);
 });
 
-multiply.addEventListener('click', (value) => {
+multiply.addEventListener('click', (event) => {
   operator = '*';
-  btnColorReset();
-  btnColorChange(value);
+  btnsColorReset();
+  btnColorChange(event);
 });
 
-divide.addEventListener('click', (value) => {
+divide.addEventListener('click', (event) => {
   operator = '/';
-  btnColorReset();
-  btnColorChange(value);
+  btnsColorReset();
+  btnColorChange(event);
 });
 
-// calculate
 equal.addEventListener('click', () => {
   let num1 = parseFloat(number1.value);
   let num2 = parseFloat(number2.value);
@@ -70,30 +68,30 @@ equal.addEventListener('click', () => {
   } else if (operator === '*') {
     result = num1 * num2;
   } else if (operator === '/') {
-    if (num2 === 0) {
-      resultArea.textContent = '0으로 나눌 수 없습니다.';
+    if (num2 == 0) {
+      resultArea.textContent = 'Error!';
       return;
     } else {
       result = num1 / num2;
     }
   } else {
-    resultArea.textContent = '수식을 입력해주세요.';
+    resultArea.textContent = 'Error!';
     return;
   }
   resultArea.textContent = `결과 : ${result}`;
 });
 
-/* ball,strike */
+/* strike,ball */
 
 let strike = 0;
 let ball = 0;
-
 let answer = ['1', '5', '2', '8'];
 let num = '5124';
 
 answer.forEach((value, index) => {
   // console.log(index, value);
   let i = num.indexOf(value);
+  // console.log(i);
   if (i > 0) {
     if ((i = index)) {
       strike += 1;
@@ -103,23 +101,74 @@ answer.forEach((value, index) => {
 });
 
 /* createElement */
-let addBeforeBtn = document.querySelector('#before');
-let addBtn = document.querySelector('#add');
-let targetRemoveBtn = document.querySelector('#target-remove');
 let inputBox = document.querySelector('#input-text');
+let addBtn = document.querySelector('#add');
+let BeforeBtn = document.querySelector('#before');
+let targetRemoveBtn = document.querySelector('#target-remove');
+
+inputBox.placeholder = '문구를 입력해주세요';
 
 addBtn.addEventListener('click', () => {
   let ul = document.querySelector('ul');
   let li = document.createElement('li');
   ul.appendChild(li);
   li.textContent = inputBox.value;
+
   let removeBtn = document.createElement('button');
   li.appendChild(removeBtn);
   removeBtn.textContent = 'X';
+  removeBtn.className = 'remove-btn';
+
   removeBtn.addEventListener('click', (event) => {
     event.target.parentNode.remove();
   });
 
   inputBox.value = '';
   inputBox.focus();
+});
+
+/* dayNightHandler */
+
+let Links = {
+  setColor: (color) => {
+    let alinks = document.querySelectorAll('a');
+    let i = 0;
+    while (i < alinks.length) {
+      alinks[i].style.color = color;
+      i = i + 1;
+    }
+  },
+};
+
+const dayNightHandler = (self) => {
+  if (self.value === 'night') {
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';
+
+    Links.setColor('powderblue');
+    self.value = 'day';
+  } else {
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+
+    Links.setColor('red');
+    self.value = 'night';
+  }
+};
+
+/* addEventListener */
+let rect = document.querySelector('.rect');
+let circle = document.querySelector('.circle');
+let body = document.querySelector('body');
+
+let colors = ['red', 'blue', 'green'];
+let i = 0;
+rect.addEventListener('click', (event) => {
+  event.target.style.backgroundColor = colors[i];
+  i = (i + 1) % colors.length;
+});
+
+body.addEventListener('click', (event) => {
+  circle.style.left = event.pageX - 15 + 'px';
+  circle.style.top = event.pageY - 15 + 'px';
 });
