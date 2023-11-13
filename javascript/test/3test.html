@@ -9,6 +9,33 @@
   </head>
 
   <body>
+    <h4>even or odd</h4>
+    <input type="number" id="number-box" />
+    <button type="button" id="even-or-odd-btn">짝홀</button>
+    <p id="result"><span class="even">even</span> or <span class="odd">odd</span></p>
+    <hr />
+    <h4>login</h4>
+
+    <!-- 이메일 유효성 검사, 1) 이메일이 입력되지않았을경우, 2)이메일에 @가 없는경우  -->
+    <!-- 패스워드 유효성검사 1) 패스워드가 없을경우, 2) 패스워드 8~16자리만 가능 -->
+
+    <form action="">
+      <div>
+        <label for="email">
+          이메일
+          <input type="text" name="email" id="email" />
+        </label>
+      </div>
+      <div>
+        <label for="password">
+          비밀번호
+          <input type="text" name="password" id="password" />
+        </label>
+      </div>
+      <button type="button" id="login">로그인</button>
+      <p id="result-area1"></p>
+    </form>
+    <hr />
     <h4>calculator</h4>
     <input type="number" placeholder="숫자입력" id="number1" />
     <button type="button" id="sum" class="operator-btn">+</button>
@@ -17,7 +44,7 @@
     <button type="button" id="divide" class="operator-btn">/</button>
     <input type="number" placeholder="숫자입력" id="number2" />
     <button type="button" id="equal">=</button>
-    <p id="result">결과 :</p>
+    <p id="result-area2">결과 :</p>
     <hr />
     <h4>indexOf, forEach</h4>
     <p>strike, ball / answer : 1528 / num : 5124</p>
@@ -31,7 +58,7 @@
     </form>
     <ul class="list">
       <li class="item" id="target">
-        기준
+        target
         <button class="remove-btn">X</button>
       </li>
     </ul>

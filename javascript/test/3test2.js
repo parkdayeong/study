@@ -1,7 +1,44 @@
-// strict mode
+/* strict mode */
 'use strict';
 
+/* login */
+
+// variable
+let emailBox = document.querySelector('#email');
+let passwordBox = document.querySelector('#password');
+let loginBtn = document.querySelector('#login');
+let resultArea = document.querySelector('#result-area');
+
+// refactoring ---> focusBox
+const focusBox = (self) => {
+  self.focus();
+  self.style.outlineColor = 'red';
+};
+
+// validate email,password
+loginBtn.addEventListener('click', () => {
+  let email = emailBox.value;
+  let password = passwordBox.value;
+
+  if (email === '' || email.includes('@') === false) {
+    resultArea.textContent = '이메일이 유효하지않습니다.';
+    focusBox(emailBox);
+  } else if (!password) {
+    resultArea.textContent = '비밀번호를 입력해주세요.';
+    focusBox(passwordBox);
+  } else if ((password.length >= 8 && password.length <= 16) === false) {
+    resultArea.textContent = '비밀번호는 8~16자리입니다.';
+    focusBox(passwordBox);
+  } else {
+    resultArea.textContent = '로그인 성공';
+    resultArea.style.color = 'red';
+  }
+});
+
 /* calculator */
+
+//variable
+
 let number1 = document.querySelector('#number1');
 let number2 = document.querySelector('#number2');
 
@@ -10,137 +47,144 @@ let min = document.querySelector('#min');
 let multiply = document.querySelector('#multiply');
 let divide = document.querySelector('#divide');
 let equal = document.querySelector('#equal');
-let result = document.querySelector('#result');
 
-/* strike,ball */
+//function btnColorReset
+const btnColorReset = () => {
+  let operatorBtns = document.querySelectorAll('.operator-btn');
+  operatorBtns.forEach((value) => {
+    value.style.backgroundColor = 'white';
+    value.style.color = 'black';
+  });
+};
+
+//refactoring ---> function btnColorChange
+const btnColorChange = (self) => {
+  self.target.style.backgroundColor = 'black';
+  self.target.style.color = 'white';
+};
+
+//operator buttons
+let operator = '';
+
+sum.addEventListener('click', (event) => {
+  operator = '+';
+  btnColorReset();
+  btnColorChange(event);
+});
+
+min.addEventListener('click', (event) => {
+  operator = '-';
+  btnColorReset();
+  btnColorChange(event);
+});
+
+multiply.addEventListener('click', (event) => {
+  operator = '*';
+  btnColorReset();
+  btnColorChange(event);
+});
+
+divide.addEventListener('click', (event) => {
+  operator = '/';
+  btnColorReset();
+  btnColorChange(event);
+});
+
+// equal button
+let resultArea = document.querySelector('#result-area');
+
+equal.addEventListener('click', () => {
+  let num1 = parseFloat(number1.value);
+  let num2 = parseFloat(number2.value);
+
+  let result = 0;
+  if (operator === '+') {
+    result = num1 + num2;
+  } else if (operator === '-') {
+    result = num1 - num2;
+  } else if (operator === '*') {
+    result = num1 * num2;
+  } else if (operator === '/') {
+    if (num2 === 0) {
+      resultArea.textContent = 'error';
+      return;
+    } else {
+      result = num1 / num2;
+    }
+  } else {
+    resultArea.textContent = 'error';
+    return;
+  }
+  resultArea.textContent = `result : ${result}`;
+});
+
+//strike ball
+
 let strike = 0;
 let ball = 0;
 let answer = ['1', '5', '2', '8'];
 let num = '5124';
 
-answer.forEach(function (value, i) {
-  let index = num.indexOf(value);
-  if (index > -1) {
-    if (index == i) {
+answer.forEach((value, index) => {
+  let i = num.indexOf(value);
+  if (i > 0) {
+    if ((i = index)) {
       strike += 1;
-    } else {
-      ball += 1;
     }
+    ball += 1;
   }
 });
 
-// for (let i = 0; i < answer.length; i++) {
-//   let index = num.indexOf(answer[i]);
-//   if (index > -1) {
-//     if (index == i) {
-//       strike += 1;
-//     } else {
-//       ball += 1;
-//     }
-//   }
-// }
+//createElement
 
-/* create Element */
-// variable
-let body = document.querySelector('body');
-let rect = document.querySelector('.rect');
-let circle = document.querySelector('.circle');
-
-let colors = ['red', 'orange', 'blue'];
-let i = 0;
-
-let beforeBtn = document.querySelector('#before');
+let inputBox = document.querySelector('#input-text');
+let addBeforeBtn = document.querySelector('#before');
 let addBtn = document.querySelector('#add');
 let removeTargetBtn = document.querySelector('#target-remove');
+let target = document.querySelector('#target');
 
-let inputBox = document.querySelector('input');
-
-// createElemnet
-
-inputBox.placeholder = '문구를 입력하세요.';
+inputBox.placeholder = '문구를 입력해주세요.';
 
 addBtn.addEventListener('click', () => {
-  let ul = document.querySelector('ul');
+  let ul = document.querySelector('.list');
   let li = document.createElement('li');
+
   ul.appendChild(li);
   li.textContent = inputBox.value;
 
-  let button = document.createElement('button');
-  li.appendChild(button);
-  button.textContent = 'X';
+  let removeBtn = document.createElement('button');
+  li.appendChild(removeBtn);
+  removeBtn.textContent = 'X';
+  removeBtn.className = 'remove-btn';
 
-  button.addEventListener('click', (event) => {
+  removeBtn.addEventListener('click', (event) => {
     event.target.parentNode.remove();
   });
 
   inputBox.value = '';
+  inputBox.focus();
 });
 
-beforeBtn.addEventListener('click', () => {
-  let ul = document.querySelector('ul');
+removeTargetBtn.addEventListener('click', () => {
+  target.remove();
+});
+
+addBeforeBtn.addEventListener('click', () => {
+  let ul = document.querySelector('.list');
   let li = document.createElement('li');
-  let target = document.querySelector('#target');
+
   ul.insertBefore(li, target);
   li.textContent = inputBox.value;
 
-  let button = document.createElement('button');
-  li.appendChild(button);
-  button.textContent = 'X';
+  let removeBtn = document.createElement('button');
+  li.appendChild(removeBtn);
+  removeBtn.textContent = 'X';
+  removeBtn.className = 'remove-btn';
 
-  button.addEventListener('click', (event) => {
+  removeBtn.addEventListener('click', (event) => {
     event.target.parentNode.remove();
   });
+
+  inputBox.value = '';
+  inputBox.focus();
 });
-let removeBtn = document.querySelector('.remove-btn');
-removeTargetBtn.addEventListener('click', () => {
-  removeBtn.parentNode.remove();
-});
-removeBtn.addEventListener('click', (event) => {
-  event.target.parentNode.remove();
-});
-// addEventListener
-rect.addEventListener('click', (event) => {
-  rect.style.backgroundColor = colors[i];
-  i = (i + 1) % colors.length;
-});
-
-// body.addEventListener('click', (event) => {
-//   circle.style.left = event.pageX + 'px';
-//   circle.style.top = event.pageY + 'px';
-// });
-
-// function dayNightHandler --> refactoring Object
-
-let Links = {
-  setColor: function (color) {
-    let alinks = document.querySelectorAll('a');
-    let i = 0;
-    while (i < alinks.length) {
-      alinks[i].style.color = color;
-      i = i + 1;
-    }
-  },
-};
-
-let Body = {
-  setBackgroundColor: function (color) {
-    document.querySelector('body').style.backgroundColor = color;
-  },
-  setColor: function (color) {
-    document.querySelector('body').style.color = color;
-  },
-};
-
-function dayNightHandler(self) {
-  if (self.value === 'night') {
-    Body.setBackgroundColor('black');
-    Body.setColor('white');
-    Links.setColor('powderblue');
-    self.value = 'day';
-  } else {
-    Body.setBackgroundColor('white');
-    Body.setColor('black');
-    Links.setColor('red');
-    self.value = 'night';
-  }
-}
