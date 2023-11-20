@@ -1,3 +1,16 @@
+/* Text Color Change */
+.go {
+  color: green;
+}
+.stop {
+  color: red;
+}
+
+/* Even or Odd */
+.txt-redline span {
+  text-decoration: line-through;
+}
+
 /* calculator */
 button {
   background-color: white;

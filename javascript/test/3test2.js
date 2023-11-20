@@ -1,6 +1,64 @@
 /* strict mode */
 'use strict';
 
+/* Text Color Change */
+
+// variable
+let startBtn = document.querySelector('#start');
+let stopBtn = document.querySelector('#stop');
+let myBox = document.querySelector('#my_box');
+let nIntervId;
+
+//function changeColor
+const changeColor = () => {
+  if (!nIntervId) {
+    nIntervId = setInterval(changeId, 500);
+  }
+};
+
+// function changeId
+const changeId = () => {
+  myBox.className = myBox.className === 'go' ? 'stop' : 'go';
+};
+
+// function stopchangeColor
+const stopChangeColor = () => {
+  clearInterval(nIntervId);
+  nIntervId = null;
+};
+
+startBtn.addEventListener('click', changeColor);
+stopBtn.addEventListener('click', stopChangeColor);
+
+/* Even or Odd */
+
+// variable
+let numberBox = document.querySelector('#number-box');
+let evenOrOddBtn = document.querySelector('#even-or-odd-btn');
+let resultArea = document.querySelector('#result');
+let even = document.querySelector('.even');
+let odd = document.querySelector('.odd');
+
+evenOrOddBtn.addEventListener('click', () => {
+  let number = parseFloat(numberBox.value);
+  if (number % 2 === 0) {
+    odd.style.color = 'black';
+    even.style.color = 'red';
+  } else if (number % 2 === 1) {
+    even.style.color = 'black';
+    odd.style.color = 'red';
+  } else {
+    numberBox.placeholder = '숫자를 입력해주세요';
+    function blink(count) {
+      resultArea.classList.toggle('txt-redline');
+      if (count > 0) {
+        setTimeout(() => blink(count - 1), 300);
+      }
+    }
+    blink(5);
+  }
+});
+
 /* login */
 
 // variable
