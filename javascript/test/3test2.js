@@ -1,19 +1,17 @@
 /* strict mode */
 'use strict';
 
-/* Text Color Change */
+/* setInterval(), clearInterval() */
 
 // variable
+let myBox = document.querySelector('#my_box');
 let startBtn = document.querySelector('#start');
 let stopBtn = document.querySelector('#stop');
-let myBox = document.querySelector('#my_box');
 let nIntervId;
 
-//function changeColor
+// function changeColor
 const changeColor = () => {
-  if (!nIntervId) {
-    nIntervId = setInterval(changeId, 500);
-  }
+  nIntervId = setInterval(changeId, 500);
 };
 
 // function changeId
@@ -21,16 +19,17 @@ const changeId = () => {
   myBox.className = myBox.className === 'go' ? 'stop' : 'go';
 };
 
-// function stopchangeColor
+// function stopChangeColor
 const stopChangeColor = () => {
   clearInterval(nIntervId);
   nIntervId = null;
+  // myBox.style.color = 'black';
 };
 
 startBtn.addEventListener('click', changeColor);
 stopBtn.addEventListener('click', stopChangeColor);
 
-/* Even or Odd */
+/* even or odd */
 
 // variable
 let numberBox = document.querySelector('#number-box');
@@ -38,26 +37,35 @@ let evenOrOddBtn = document.querySelector('#even-or-odd-btn');
 let resultArea = document.querySelector('#result');
 let even = document.querySelector('.even');
 let odd = document.querySelector('.odd');
+let interClass;
 
 evenOrOddBtn.addEventListener('click', () => {
-  let number = parseFloat(numberBox.value);
-  if (number % 2 === 0) {
-    odd.style.color = 'black';
+  let num = parseFloat(numberBox.value);
+  let i = 0;
+  if (num % 2 === 0) {
     even.style.color = 'red';
-  } else if (number % 2 === 1) {
+    odd.style.color = 'black';
+  } else if (num % 2 === 1) {
     even.style.color = 'black';
     odd.style.color = 'red';
   } else {
-    numberBox.placeholder = '숫자를 입력해주세요';
-    function blink(count) {
-      resultArea.classList.toggle('txt-redline');
-      if (count > 0) {
-        setTimeout(() => blink(count - 1), 300);
-      }
-    }
-    blink(5);
+    blinkClass(i);
   }
 });
+
+function blinkClass(i) {
+  interClass = setInterval(() => {
+    changeClass();
+    i = i + 1;
+    if (i === 10) {
+      clearInterval(interClass);
+    }
+  }, 500);
+}
+
+function changeClass() {
+  resultArea.classList.toggle('txt-line');
+}
 
 /* login */
 
@@ -65,7 +73,7 @@ evenOrOddBtn.addEventListener('click', () => {
 let emailBox = document.querySelector('#email');
 let passwordBox = document.querySelector('#password');
 let loginBtn = document.querySelector('#login');
-let resultArea = document.querySelector('#result-area');
+let resultArea1 = document.querySelector('#result-area1');
 
 // refactoring ---> focusBox
 const focusBox = (self) => {

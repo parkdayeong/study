@@ -7,8 +7,12 @@
 }
 
 /* Even or Odd */
-.txt-redline span {
+.txt-line span {
   text-decoration: line-through;
+}
+
+.txt-color-red {
+  color: red;
 }
 
 /* calculator */

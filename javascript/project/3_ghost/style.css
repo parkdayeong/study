@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ghost {
+  position: absolute;
+  animation: moveUpDown 3s infinite;
+}
+
+@keyframes moveUpDown {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -50px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+.ghost .body {
+  background-color: white;
+  width: 120px;
+  height: 160px;
+  border-top-left-radius: 45%;
+  border-top-right-radius: 45%;
+  position: relative;
+}
+
+.ghost .body .face {
+  width: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  justify-content: space-between;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ghost .body .face .eye {
+  width: 19px;
+  height: 19px;
+  background-color: #333;
+  border-radius: 50%;
+  text-indent: -9999px;
+}
+
+.ghost .body .face .mouse {
+  width: 33px;
+  height: 15px;
+  background-color: #333;
+  margin-top: 10px;
+  margin-left: 18px;
+  text-indent: -9999px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.ghost .bottom {
+  display: flex;
+}
+.ghost .bottom .leg {
+  width: 24px;
+  height: 15px;
+  background-color: white;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.ghost .bottom .leg:nth-child(2n) {
+  background-color: #333;
+  position: relative;
+  top: -6px;
+  border-radius: 50%;
+}
