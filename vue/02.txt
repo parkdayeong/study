@@ -1,0 +1,8 @@
+// https://www.youtube.com/watch?v=0BbF7UxKKvg
+
+{{데이터바인딩}}
+
+1. html에 하드코딩에 놓으면 변동이 어려움
+2. vue의 실시간 자동 렌더링 
+3. vue는 data를 변경하면 data와 관련된 html에도 실시간으로 반영됨
+4. html 속성도 데이터 바인딩가능 :속성='데이터이름'
