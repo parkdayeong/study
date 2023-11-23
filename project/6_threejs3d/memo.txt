@@ -1,0 +1,36 @@
+// Three.js
+
+
+(1) blender , sketchfab.com
+gltf 로 제작 또는 다운로드
+
+(2)three.js 설치  -- npm 설치시
+1. npm install three
+2. 
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
+
+
+
+
+(2)-1 three.js 설치 --수동설치시
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+        "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+      }
+    }
+  </script>
+
+  <script>
+  import {GLTFLoader} from 'GLTFLoader';
+  import * as THREE from 'three';
+  </script>
+  
+
+  (3) 장면만들고, 브라우저에 렌더링
+  (4) 3d model 보여줄때 필요한 것들
+  1. 카메라
+  PerspectiveCamera -- 원근법적용
+  OrthographicCamera -- 원근법미적용
+  2.조명 3.배경
