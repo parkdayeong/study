@@ -10,6 +10,9 @@
 .txt-line span {
   text-decoration: line-through;
 }
+.txt-line {
+  text-decoration: line-through;
+}
 
 .txt-color-red {
   color: red;

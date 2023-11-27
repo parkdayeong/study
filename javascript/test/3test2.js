@@ -1,35 +1,58 @@
 /* strict mode */
 'use strict';
 
-/* setInterval(), clearInterval() */
+/**
+ * @todo 메모
+ * @deprecated 이거쓰지마세요
+ *
+ */
+/**
+ * 함수
+ * @param {string} name 사람이름
+ * @param {number} age 나이
+ * @returns 두값을 합쳐서 문자로 뱉음
+ *
+ */
+
+function hello(name, age) {
+  return name + age;
+}
+
+/*---------------------------------------
+setInterval(), clearInterval() 
+----------------------------------------*/
 
 // variable
 let myBox = document.querySelector('#my_box');
 let startBtn = document.querySelector('#start');
 let stopBtn = document.querySelector('#stop');
-let nIntervId;
+let ninterId;
 
-// function changeColor
-const changeColor = () => {
-  nIntervId = setInterval(changeId, 500);
+// function colorChange
+const colorChange = () => {
+  ninterId = setInterval(changeClass, 500);
 };
 
-// function changeId
-const changeId = () => {
+// function changeClass
+const changeClass = () => {
   myBox.className = myBox.className === 'go' ? 'stop' : 'go';
 };
 
-// function stopChangeColor
-const stopChangeColor = () => {
-  clearInterval(nIntervId);
-  nIntervId = null;
-  // myBox.style.color = 'black';
+// function stopColorChange
+const stopColorChange = () => {
+  clearInterval(ninterId);
+  ninterId = null;
 };
 
-startBtn.addEventListener('click', changeColor);
-stopBtn.addEventListener('click', stopChangeColor);
+// start click event
+startBtn.addEventListener('click', colorChange);
 
-/* even or odd */
+// stop click event
+stopBtn.addEventListener('click', stopColorChange);
+
+/*---------------------------------------
+even or odd
+----------------------------------------*/
 
 // variable
 let numberBox = document.querySelector('#number-box');
@@ -37,8 +60,9 @@ let evenOrOddBtn = document.querySelector('#even-or-odd-btn');
 let resultArea = document.querySelector('#result');
 let even = document.querySelector('.even');
 let odd = document.querySelector('.odd');
-let interClass;
+let intervlId;
 
+// function
 evenOrOddBtn.addEventListener('click', () => {
   let num = parseFloat(numberBox.value);
   let i = 0;
@@ -50,24 +74,29 @@ evenOrOddBtn.addEventListener('click', () => {
     odd.style.color = 'red';
   } else {
     blinkClass(i);
+    numberBox.placeholder = '숫자를 입력해주세요';
   }
 });
 
-function blinkClass(i) {
-  interClass = setInterval(() => {
-    changeClass();
+// function blinkClass
+const blinkClass = (i) => {
+  intervlId = setInterval(() => {
+    toggleClass();
     i = i + 1;
     if (i === 10) {
-      clearInterval(interClass);
+      clearInterval(intervlId);
     }
   }, 500);
-}
+};
 
-function changeClass() {
+// function toggleClass
+const toggleClass = () => {
   resultArea.classList.toggle('txt-line');
-}
+};
 
-/* login */
+/*---------------------------------------
+login
+----------------------------------------*/
 
 // variable
 let emailBox = document.querySelector('#email');
@@ -75,29 +104,19 @@ let passwordBox = document.querySelector('#password');
 let loginBtn = document.querySelector('#login');
 let resultArea1 = document.querySelector('#result-area1');
 
-// refactoring ---> focusBox
-const focusBox = (self) => {
-  self.focus();
-  self.style.outlineColor = 'red';
-};
-
-// validate email,password
 loginBtn.addEventListener('click', () => {
   let email = emailBox.value;
   let password = passwordBox.value;
 
   if (email === '' || email.includes('@') === false) {
-    resultArea.textContent = '이메일이 유효하지않습니다.';
-    focusBox(emailBox);
+    resultArea1.textContent = '이메일이 유효하지않습니다.';
+    resultArea1.classList.add('txt-color-red');
   } else if (!password) {
-    resultArea.textContent = '비밀번호를 입력해주세요.';
-    focusBox(passwordBox);
+    resultArea1.textContent = '비밀번호를 입력해주세요';
   } else if ((password.length >= 8 && password.length <= 16) === false) {
-    resultArea.textContent = '비밀번호는 8~16자리입니다.';
-    focusBox(passwordBox);
+    resultArea1.textContent = '비밀번호는 8~ 16자리입니다.';
   } else {
-    resultArea.textContent = '로그인 성공';
-    resultArea.style.color = 'red';
+    resultArea1.textContent = '로그인성공';
   }
 });
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      // 배열만들기
+      // var arr = [];
+      // var arr = new Array();
+
+      // var fruits = [];
+      // fruits[0] = '사과';
+      // fruits[1] = '배';
+      // fruits[2] = '바나나';
+
+      var fruits = ['사과', '배', '바나나', '딸기'];
+      var animals = ['사자', '호랑이', '곰'];
+
+      var amount = fruits.legnth;
+      var newStr = fruits.join('/');
+      var newArr = fruits.reverse();
+      var newArr2 = fruits.sort(function (a, b) {
+        return b - a;
+      });
+      var newArr3 = fruits.concat(animals);
+      var newArr4 = fruits.slice(1, 3); // 원분유지 1번재부터 3번째 이전까지
+      var newArr5 = fruits.splice(1, 3); // 원본손상  1번째부터 3번째 까지
+
+      document.write(fruits + '<br>');
+      document.write(fruits[0] + '<br>');
+      document.write(newStr + '<br>');
+      document.write(newArr + '<br>');
+      document.write(newArr2 + '<br>');
+      document.write(newArr3 + '<br>');
+      document.write(newArr4 + '<br>');
+      document.write(newArr5 + '<br>');
+    </script>
+  </body>
+</html>

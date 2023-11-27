@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열, 타이머</title>
+  </head>
+  <body>
+    <!-- https://www.youtube.com/watch?v=-nQemJ47YUc&list=PL-qMANrofLyvzqz2yYzNectJnYo5ZifE7&index=6 -->
+    <script>
+      // var str = 'hello world';
+      // var str1 = 'javascript';
+
+      // var str2 = str.indexOf('w');
+      // console.log(str2);
+      // var newStr1 = str + str1;
+      // console.log(newStr1);
+      // var n = str.charAt(6);
+      // console.log(n);
+
+      /**
+       * setTimeout(할일, 시간);
+       * 시간이 지나면 할일 = 함수
+       * function(){실제로 할일}
+       * 3초 : 3000ms
+       * 할일 --> console.log('hi')
+       * */
+
+      /**
+       * clearTimeout(할일의 이름)
+       *
+       * */
+
+      // const logHi = setTimeout(() => {
+      //   console.log('hi');
+      // }, 3000);
+
+      // clearTimeout(logHi);
+
+      /**
+       * 일정시간마다 할일
+       * setInterval(할일, 시간)
+       * *--할일멈추기
+       * clearInterval(할일이름)
+       * */
+      let i = 0;
+      const blickInterval = (i) => {
+        const setInter = setInterval(() => {
+          console.log('hi');
+          i += 2;
+          if (i === 10) {
+            clearInterval(setInter);
+            console.log('----끝---');
+          }
+        }, 2000);
+      };
+      blickInterval(i);
+    </script>
+  </body>
+</html>
