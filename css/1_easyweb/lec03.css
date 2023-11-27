@@ -1,0 +1,53 @@
+/* :root {
+  font-size: 13px;
+} */
+
+/* body {
+ font-size: 15px;
+}
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 0.9rem;
+  width: 20rem;
+  background-color: beige;
+}
+*/
+body {
+  font-size: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  border: 1px solid black;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.box {
+  background-color: beige;
+}
+
+.box_px {
+  width: 100px;
+  height: 100px;
+}
+
+.box_em {
+  width: 10em;
+  height: 10em;
+}
+
+.box_rem {
+  width: 10rem;
+  height: 10rem;
+}

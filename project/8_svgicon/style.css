@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: f1f1f1;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+#page-loader {
+  width: 150px;
+  height: 150px;
+}
+
+#page-loader circle {
+  fill: none;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  animation: dash 4s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+#page-loader circle:nth-child(1) {
+  stroke: #e0e61e;
+  stroke-dasharray: 50;
+}
+
+#page-loader circle:nth-child(2) {
+  stroke: rgb(143, 82, 197);
+  stroke-dasharray: 100;
+  animation-delay: 0.2s;
+}
+
+#page-loader circle:nth-child(3) {
+  stroke: rgb(255, 179, 73);
+  stroke-dasharray: 180;
+  animation-delay: 0.4s;
+}
+
+#page-loader circle:nth-child(4) {
+  stroke: rgb(225, 100, 237);
+  stroke-dasharray: 350;
+  stroke-dashoffset: -100;
+  animation-delay: 1s;
+}
+
+@keyframes dash {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* #line-box {
+  width: 600px;
+  height: 200px;
+  background-color: rgb(226, 226, 226);
+}
+
+#line-box line {
+  stroke: black;
+  stroke-width: 3px;
+}
+#line-box line:nth-child(1) {
+  stroke-dasharray: 0;
+}
+#line-box line:nth-child(2) {
+  stroke-dasharray: 100;
+}
+#line-box line:nth-child(3) {
+  stroke-dasharray: 200;
+}
+#line-box line:nth-child(4) {
+  stroke-dasharray: 300;
+}
+#line-box line:nth-child(5) {
+  stroke-dasharray: 5, 5;
+}
+#line-box line:nth-child(6) {
+  stroke-dasharray: 5, 20;
+}
+#line-box line:nth-child(7) {
+  stroke-dasharray: 20, 5;
+} */

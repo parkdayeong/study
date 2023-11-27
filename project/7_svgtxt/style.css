@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100vh;
+  background: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+svg {
+  fill: none;
+  width: 200px;
+  stroke-width: 15px;
+  stroke-linecap: round;
+}
+path {
+  /* stroke: black; */
+  stroke-dasharray: var(--length);
+  stroke-dashoffset: var(--length);
+}
+
+.bg-main > path {
+  stroke: #fff;
+  animation: line var(--duration) ease forwards;
+  animation-delay: var(--delay);
+}
+.sgv-main > path {
+  stroke: rgb(80, 8, 215);
+  animation: line var(--duration) ease-in forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes line {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
