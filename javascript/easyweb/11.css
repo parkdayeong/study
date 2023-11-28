@@ -5,13 +5,19 @@
 
 body {
   background-color: #313944;
-  padding: 5em 20em;
+  padding: 2em 3em;
+  width: 100%;
+  text-align: center;
+}
+
+header {
+  width: 100%;
 }
 
 h1 {
   color: #fff;
   font-family: 'Cormorant Infant';
-  font-size: 72px;
+  font-size: 4em;
   font-weight: 700;
   line-height: 72px;
   letter-spacing: -1px;
@@ -23,7 +29,7 @@ h1:after {
   color: #1fcfcb;
   display: block;
   content: '. . .';
-  font-size: 26px;
+  font-size: 1em;
   line-height: 24px;
   height: 24px;
   margin: 48px auto;
@@ -32,12 +38,56 @@ h1:after {
 h2 {
   color: #fff;
   font-family: 'Cormorant Infant';
-  font-size: 54px;
+  font-size: 3em;
   font-weight: 700;
   line-height: 72px;
   letter-spacing: -1px;
   margin-bottom: 48px;
   text-align: center;
+}
+#btn-bg-control {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #313943;
+  border: none;
+  border-radius: 5px;
+  padding: 1em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#btn-bg-control:hover {
+  background-color: #7b7b7b;
+  color: white;
+  padding: 1em 3em;
+}
+
+#login-area {
+  margin: 0 auto;
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  color: white;
+  background: rgb(132, 132, 132);
+  padding: 1em;
+  font-size: 1.2em;
+}
+
+input[type='text'] {
+  padding: 10px;
+}
+
+#login {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #313943;
+  border: none;
+  border-radius: 5px;
+  padding: 1em 3em;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 p {
@@ -86,4 +136,8 @@ a:hover {
 
 #back-to-top.visible {
   opacity: 1;
+}
+
+/*  media query Start */
+@media (max-width: 800px) {
 }

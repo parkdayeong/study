@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>JavaScript for Web Designers - Back to top button demo</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Infant:700,700italic|Lato:400,400italic,700" />
     <link rel="stylesheet" href="11.css" />
     <script src="11.js" defer></script>
   </head>
   <body>
-    <header id="top">
+    <header>
+      <!-- <b id="top"> M</b -->
       <h1>Moby Dick</h1>
       <h2>by Herman Melville</h2>
+      <input type="button" id="btn-bg-control" value="dark" onclick="darkLightHandler(this)" />
+      <form action="" id="login-area">
+        <div>
+          <label for="email">
+            이메일
+            <input type="text" name="email" id="email" />
+          </label>
+        </div>
+        <div>
+          <label for="password">
+            비밀번호
+            <input type="text" name="password" id="password" />
+          </label>
+        </div>
+        <button type="button" id="login">Login</button>
+        <p id="result-area1"></p>
+      </form>
     </header>
 
     <main>
