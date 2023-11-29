@@ -1,3 +1,5 @@
+GSAP 공식홈페이지 : https://gsap.com/
+
 01. GSAP 패럴랙스 이펙트 : 기본 애니메이션 : https://webstoryboy.co.kr/1909
 02. GSAP 패럴랙스 이펙트 : Pin 애니메이션 : https://webstoryboy.co.kr/1910
 03. GSAP 패럴랙스 이펙트 : Pin 배경 고정하기 : https://webstoryboy.co.kr/1911
@@ -13,3 +15,9 @@
 13. GSAP 패럴랙스 이펙트 : 가로/세로 효과 : https://webstoryboy.co.kr/1921
 14. GSAP 패럴랙스 이펙트 : 가로/세로 나타나기 효과 : https://webstoryboy.co.kr/1922
 15. GSAP 패럴랙스 이펙트 : 스무스 효과 : https://webstoryboy.co.kr/1923
+
+
+
+01.
+(1)toggleActions: 'onEnter onLeave onEnterBack onLeaveBack'
+play, pause, resume, reset, restart, complete, reverse, none
