@@ -1,37 +1,38 @@
-'use stict';
+'use strict';
 
 // variable
-
 let sliderWrapper = document.querySelector('.container');
 let sliderContainer = document.querySelector('.slider-container');
 let slides = document.querySelectorAll('.slide');
-let slideCount = slides.length;
-let slideTopHeight = 0;
+let slidesCount = slides.length;
 let currentIndex = 0;
-let btnPrev = document.querySelector('#prev');
+let topHeight = 0;
 let btnNext = document.querySelector('#next');
+let btnPrev = document.querySelector('#prev');
 
 /**
  * function calculateTallestSlide
  * 슬라이드 높이 확이하여 부모의 높이로 지정하기
  */
+
 const calculateTallestSlide = () => {
-  for (let i = 0; i < slideCount; i++) {
-    if (slides[i].offsetHeight > slideTopHeight) {
-      slideTopHeight = slides[i].offsetHeight;
+  for (let i = 0; i < slidesCount; i++) {
+    if (slides[i].offsetHeight > topHeight) {
+      topHeight = slides[i].offsetHeight;
     }
   }
-  sliderWrapper.style.height = slideTopHeight + 'px';
-  sliderContainer.style.height = slideTopHeight + 'px';
+  sliderWrapper.style.height = topHeight + 'px';
+  sliderContainer.style.height = topHeight + 'px';
 };
 
 calculateTallestSlide();
+
 /**
  * function slidesLeft
  * 각슬라이드를 가로로 배열하기(0-- 100% -- 200% ...) */
 
 const slidesLeft = () => {
-  for (let i = 0; i < slideCount; i++) {
+  for (let i = 0; i < slidesCount; i++) {
     slides[i].style.left = i * 100 + '%';
   }
 };
@@ -52,6 +53,8 @@ const goToSlide = (idx) => {
   sliderContainer.classList.add('animated');
 };
 
+// goToSlide(2);
+
 /**
  * 버튼기능 업데이트 함수 updateNav
  * 처음슬라이드에는 이전버튼 사라지게
@@ -66,21 +69,17 @@ const goToSlide = (idx) => {
  *
  */
 
-btnNext.addEventListener('click', (e) => {
-  e.preventDefault();
-  // goToSlide(currentIndex + 1);
-  if (currentIndex === slideCount - 1) {
+btnNext.addEventListener('click', () => {
+  if (currentIndex === slidesCount - 1) {
     goToSlide(0);
   } else {
     goToSlide(currentIndex + 1);
   }
 });
 
-btnPrev.addEventListener('click', (e) => {
-  e.preventDefault();
-  // goToSlide(currentIndex - 1);
+btnPrev.addEventListener('click', () => {
   if (currentIndex === 0) {
-    goToSlide(slideCount - 1);
+    goToSlide(slidesCount - 1);
   } else {
     goToSlide(currentIndex - 1);
   }
@@ -89,4 +88,3 @@ btnPrev.addEventListener('click', (e) => {
 /**
  * 첫번째 슬라이드 먼저 보이도록하기
  */
-goToSlide(0);

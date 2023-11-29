@@ -81,12 +81,12 @@ cite {
   display: none;
 }
 #prev {
-  background-image: url('./images/btn-left.png');
+  background-image: url('./images/btn-left-in.png');
   left: 5%;
 }
 
 #prev:hover {
-  background-image: url('./images/btn-left-in.png');
+  background-image: url('./images/btn-left.png');
 }
 
 #next {
