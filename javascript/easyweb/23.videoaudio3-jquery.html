@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23.videoaudio - jquery Controls</title>
+    <link rel="stylesheet" href="23.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+  </head>
+  <body>
+    <button id="aplay">Play music</button>
+    <button id="apause">Pause music</button><br />
+    <hr />
+    <button id="vplay">play video</button>
+    <button id="vpause">pause video</button>
+
+    <video src="video/vivaldi.mp4" muted id="myVideo"></video>
+    <audio src="audio/Honey_Bee_01_web.mp3"></audio>
+
+    <script>
+      $(function () {
+        // let myVideo = $('#myVideo');
+        $('#vplay').click(function () {
+          $('#myVideo').get(0).play();
+        });
+        $('#vpause').click(function () {
+          $('#myVideo').get(0).pause();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABC corporation</title>
+    <script>
+      /**
+       *  현재날짜 반환 : new Date()
+       * 변수.날짜 지정 = 변수.setDate(새로운날짜)
+       * 날짜만 가져와서 7일 더하기
+       * getDate()+7
+       * */
+
+      let date = new Date(); // 현재날짜 반환
+      //변수.날짜지정 변수.setDate(새로운날짜)
+      date.setDate(date.getDate() + 7);
+      // date.getDate() + 7;
+
+      let setCookie = '';
+      setCookie += 'CookieName = ABC;';
+      setCookie += 'expires = ' + date.toUTCString();
+      // console.log(setCookie);
+      document.cookie = setCookie;
+    </script>
+  </head>
+  <body></body>
+</html>

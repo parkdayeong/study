@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23.videoaudio</title>
+    <link rel="stylesheet" href="23.css" />
+  </head>
+  <body>
+    <!-- 
+
+ -->
+    <button id="aplay">Play music</button>
+    <button id="apause">Pause music</button><br />
+    <hr />
+    <button id="vplay">play video</button>
+    <button id="vpause">pause video</button>
+
+    <video src="video/vivaldi.mp4" muted></video>
+    <audio src="audio/Honey_Bee_01_web.mp3"></audio>
+
+    <script>
+      let myAudio = document.querySelector('audio');
+
+      const playAudio = () => {
+        myAudio.play();
+      };
+      const pauseAudio = () => {
+        myAudio.pause();
+      };
+
+      document.querySelector('#aplay').addEventListener('click', playAudio);
+      document.querySelector('#apause').addEventListener('click', pauseAudio);
+    </script>
+  </body>
+</html>

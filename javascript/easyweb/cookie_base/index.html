@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABC corporation</title>
+
+    <style>
+      .notice {
+        position: fixed;
+        padding: 20px;
+        border: 1px solid #ccc;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notice">Notice</div>
+    <button onclick="deleteCookie();">쿠키지우기</button>
+
+    <script>
+      console.log(document.cookie);
+      let currentCookie = document.cookie;
+      let cookieCheck = currentCookie.indexOf('DAYEONG');
+      console.log(cookieCheck);
+      if (cookieCheck > -1) {
+        document.querySelector('.notice').style.display = 'none';
+      } else {
+        document.querySelector('.notice').style.display = 'block';
+      }
+
+      let date = new Date(); // 현재날짜 반환
+      //변수.날짜지정 변수.setDate(새로운날짜)
+      date.setDate(date.getDate() + 7);
+      // date.getDate() + 7;
+
+      let setCookie = '';
+      setCookie += 'DAYEONG = DDLEF;';
+      setCookie += 'expires = ' + date.toUTCString();
+      // console.log(setCookie);
+      document.cookie = setCookie;
+
+      const deleteCookie = () => {
+        let date = new Date(); // 현재날짜 반환
+        //변수.날짜지정 변수.setDate(새로운날짜)
+        date.setDate(date.getDate() - 1);
+        // date.getDate() + 7;
+
+        let setCookie = '';
+        setCookie += 'DAYEONG = DDLEF;';
+        setCookie += 'expires = ' + date.toUTCString();
+        // console.log(setCookie);
+        document.cookie = setCookie;
+      };
+    </script>
+  </body>
+</html>

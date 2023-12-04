@@ -1,0 +1,33 @@
+.btn_wrap {
+  width: 400px;
+  margin: 100px auto;
+  height: 100px;
+  border: 1px solid navy;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.gage {
+  background-color: navy;
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-duration: 1s;
+}
+
+.btn_wrap h3 {
+  position: relative;
+  text-align: center;
+  line-height: 50px;
+  font-size: 26px;
+}
+
+.btn_wrap:hover .gage {
+  width: 100%;
+}
+
+.btn_wrap:hover .btn_wrap h3 {
+  color: white;
+}
