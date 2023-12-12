@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+  <style>
+
+  </style>
+ 
+</head>
+
+  <body>
+    <h1>Mobile Detect</h1>
+
+    <a href="https://youtu.be/1O13X68nrSs?list=PL-qMANrofLyvzqz2yYzNectJnYo5ZifE7"> 강의 바로가기</a>
+    <hr>
+    <div class="mobile">mobile device</div>
+    <div class="pc">PC device</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+      //1)  devicePixelRatio
+      // let ratio = window.devicePixelRatio;
+      // if (ratio >= 2) {
+      //   document.querySelector('.pc').style.display = 'none';
+      // } else {
+      //   document.querySelector('.mobile').style.display = 'none';
+      // }
+      //2 cross browsing :  Modernizr cdn (https://modernizr.com/)  --touchevent
+      // if (Modernizr.touchevents) {
+      // // supported
+      // document.querySelector('.pc').style.display = 'none';
+      // } else {
+      // // not-supported
+      //  document.querySelector('.mobile').style.display = 'none';
+      // } 
+
+      /*3 userAgent  navigator.userAgent모바일 감지하기*/
+      let uAgent = navigator.userAgent
+      console.log(uAgent)
+    </script>
+    <script></script>
+    >
+  </body>
+</html>

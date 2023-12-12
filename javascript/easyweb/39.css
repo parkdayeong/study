@@ -1,0 +1,46 @@
+/* General */
+
+body {
+  background-color: #ededed;
+  padding: 0 20px;
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 80px 0;
+}
+
+.mynav ul {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+.mynav li {
+  margin: 0 10px;
+}
+
+.mynav a {
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
+  padding: 7px 15px;
+}
+
+.target {
+  position: absolute;
+  border-bottom: 4px solid transparent;
+}
+
+.mynav a,
+.target {
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
