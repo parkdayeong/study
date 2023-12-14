@@ -3,7 +3,7 @@
 
 const target = document.querySelector('.target');
 const links = document.querySelectorAll('.mynav a');
-const colors = ['red', 'black', 'orange', 'green', 'blue', 'skyblue', 'yellow'];
+const colors = ['deepskyblue', 'red', 'orange', 'green', 'blue', 'skyblue', 'yellow'];
 
 // 링크
 for (let i = 0; i < links.length; i++) {
@@ -27,8 +27,17 @@ function mouseEnterFunc() {
     // const width = this.getBoundingClientRect().width;
     const width = this.offsetWidth;
     const height = this.offsetHeight;
-    const left = this.getBoundingClientRect().left + window.pageXOffset;
-    const top = this.getBoundingClientRect().top + window.pageYOffset;
-    console.log(width, height, left, top);
+    const left = this.offsetLeft;
+    // const left = this.getBoundingClientRect().left + window.pageXOffset;
+    const top = this.offsetTop;
+    // const top = this.getBoundingClientRect().top + window.pageYOffset;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    // console.log(Math.floor(Math.random() * links.length));
+
+    target.style.width = `${width}px`;
+    target.style.height = `${height}px`;
+    target.style.left = `${left}px`;
+    target.style.top = `${top}px`;
+    target.style.borderColor = color;
   }
 } // mouseEnterFunc
