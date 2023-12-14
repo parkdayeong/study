@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   -webkit-font-smoothing: antialised;
 }
 
@@ -20,7 +20,7 @@ body {
   overflow: hidden;
   /* background-color: antiquewhite; */
   left: 0;
-  /* padding-bottom: 80px; */
+  padding-bottom: 80px;
 }
 
 .slider-container {
