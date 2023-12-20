@@ -1,57 +1,50 @@
 'use strict';
 
-let $sliderWrapper = document.querySelector('.slider-wrapper');
-let $sliderContainer = document.querySelector('.slider-container');
-let $slides = document.querySelectorAll('.slide');
+const $sliderWrapper = document.querySelector('.slider-wrapper'),
+  $sliderContainer = document.querySelector('.slider-container'),
+  $btnPrev = document.querySelector('#prev'),
+  $btnNext = document.querySelector('#next');
 
-let $btnPrev = document.querySelector('#prev');
-let $btnNext = document.querySelector('#next');
-
-let $currentIdx = 0;
-let $topHeight = 0;
-
-let $timer = undefined;
-
-let $pagerWrapper = document.querySelector('.pager');
-let $pagerHtml = '';
-
-/** function caculateSlideHeight
- * 슬라이드 높이중 가장 높은 값을 부모에게 할당하기
+let $slides = document.querySelectorAll('.slide'),
+  $currentIdx = 0,
+  $topHeight = 0,
+  $timer = 0,
+  $pager = document.querySelector('.pager'),
+  $pagerHTML = '';
+/** function sliderHeight()
+ * 각  slide의 높이값중 가장 높은값 확인하여
+ * slider부모에 할당하기
  */
-function caculateSlideHeight() {
+sliderHeight();
+function sliderHeight() {
   for (let i = 0; i < $slides.length; i++) {
     if ($slides[i].offsetHeight > $topHeight) {
       $topHeight = $slides[i].offsetHeight;
     }
   }
-  $sliderWrapper.style.height = $topHeight + 'px';
   $sliderContainer.style.height = $topHeight + 'px';
+  $sliderWrapper.style.height = $topHeight + 'px';
 }
 
-caculateSlideHeight();
-
-/** function slidesSort
- * 슬라이드 순서대로 가로로 정렬하기
+/** function slidesSort()
+ * 각 슬라이드 가로 정렬하기
  */
+slidesSort();
 function slidesSort() {
   for (let i = 0; i < $slides.length; i++) {
     $slides[i].style.left = i * 100 + '%';
   }
 }
-slidesSort();
 
-/**
- * pagerbtns 자동생성
- */
-
+/** slide갯수만큼 pagerbtn 생성하기 */
 for (let i = 0; i < $slides.length; i++) {
-  $pagerHtml += `<span data-idx="${i}">${i}</span>`;
-  $pagerWrapper.innerHTML = $pagerHtml;
+  $pagerHTML += `<span data-idx="${i}">${i}</span>`;
+  $pager.innerHTML = $pagerHTML;
 }
-let $btnPagers = document.querySelectorAll('.pager span');
 
-/** function goToSlide
- *  슬라이드 이동함수
+let $pagerbtns = document.querySelectorAll('.pager span');
+/** function goToSlide()
+ * 슬라이드 이동 함수
  */
 
 function goToSlide(idx) {
@@ -59,17 +52,18 @@ function goToSlide(idx) {
   $currentIdx = idx;
   $sliderContainer.classList.add('animated');
   btnUpdate();
-  for (let i = 0; i < $btnPagers.length; i++) {
-    $btnPagers[i].classList.remove('active');
+  for (let i = 0; i < $slides.length; i++) {
+    $pagerbtns[i].classList.remove('active');
   }
-  $btnPagers[idx].classList.add('active');
+  $pagerbtns[idx].classList.add('active');
 }
 
-/** function btnUpdate */
-
+/** function btnUpdate()
+ * 버튼 업데이트 함수
+ */
 function btnUpdate() {
   if ($currentIdx === 0) {
-    $btnPrev.style.display = 'none';
+    $btnPrev.style.display = ' none';
   } else {
     $btnPrev.style.display = 'block';
   }
@@ -80,7 +74,15 @@ function btnUpdate() {
   }
 }
 
-/** btn click event */
+/** prev,next btn click event */
+$btnPrev.addEventListener('click', (e) => {
+  e.preventDefault();
+  if ($currentIdx === 0) {
+    goToSlide($slides.length - 1);
+  } else {
+    goToSlide($currentIdx - 1);
+  }
+});
 
 $btnNext.addEventListener('click', (e) => {
   e.preventDefault();
@@ -91,43 +93,30 @@ $btnNext.addEventListener('click', (e) => {
   }
 });
 
-$btnPrev.addEventListener('click', (e) => {
-  e.preventDefault();
-  if ($currentIdx === 0) {
-    goToSlide($slides.length - 1);
-  } else {
-    goToSlide($currentIdx - 1);
-  }
-});
-
-/** function autoSlide */
-
+/** function autoSlide()
+ * 자동슬라이드 함수
+ */
+autoSlide();
 function autoSlide() {
   $timer = setInterval(() => {
-    let nextSlide = ($currentIdx + 1) % $slides.length;
-    goToSlide(nextSlide);
+    let $nextIdx = ($currentIdx + 1) % $slides.length;
+    goToSlide($nextIdx);
   }, 1000);
 }
 
-autoSlide();
-
-/** mouseenter,mouseleave event */
 $sliderWrapper.addEventListener('mouseenter', () => {
   clearInterval($timer);
 });
+$sliderWrapper.addEventListener('mouseleave', autoSlide);
 
-$sliderWrapper.addEventListener('mouseleave', () => {
-  autoSlide();
-});
+/** pager */
 
-/** pager click event */
-
-for (let i = 0; i < $btnPagers.length; i++) {
-  $btnPagers[i].addEventListener('click', () => {
-    let $pagerNum = $btnPagers[i].getAttribute('data-idx');
+for (let i = 0; i < $pagerbtns.length; i++) {
+  $pagerbtns[i].addEventListener('click', () => {
+    let $pagerNum = $pagerbtns[i].dataset.idx;
     goToSlide($pagerNum - 1);
   });
 }
 
-/** 첫화면 */
+/** init */
 goToSlide(0);
