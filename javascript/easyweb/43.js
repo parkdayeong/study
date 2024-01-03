@@ -29,7 +29,7 @@ function initSlider() {
     // label 생성하기
     let label = document.createElement('label');
     label.setAttribute('for', `slide-radio-${i}`);
-    label.innerHTML = i;
+    // label.innerHTML = i;
     pagniationContainer.prepend(label);
   }
 
@@ -41,7 +41,7 @@ function initSlider() {
 let autoRun = undefined;
 autoSlide();
 function autoSlide() {
-  autoRun = setInterval(changeSlide, 1000);
+  autoRun = setInterval(changeSlide, 4000);
 }
 changeSlide();
 function changeSlide() {
